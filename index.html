@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Babar Khalid Khan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --black: #080909;
+    --white: #f5f2ee;
+    --green: #4a9e6b;
+    --green-dim: #1a5c3a;
+    --green-bright: #6db88a;
+    --muted: #6b6560;
+    --line: rgba(74,158,107,0.2);
+    --line-soft: rgba(74,158,107,0.1);
+  }
+  html { scroll-behavior: smooth; }
+  body { background: var(--black); color: var(--white); font-family: 'Syne', sans-serif; overflow-x: hidden; }
+  body::after { content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 999; opacity: 0.4;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E"); }
+
+  /* NAV */
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 18px 48px; border-bottom: 1px solid var(--line); background: rgba(8,9,9,0.92); backdrop-filter: blur(14px); }
+  .nav-logo { font-family: 'DM Sans', sans-serif; font-weight: 300; font-size: 19px; letter-spacing: 0.06em; color: var(--green); text-decoration: none; }
+  .nav-right { display: flex; gap: 8px; align-items: center; }
+  .nav-icon { width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; border: 1px solid var(--line); border-radius: 50%; color: var(--muted); text-decoration: none; transition: all 0.25s; }
+  .nav-icon:hover { border-color: var(--green); color: var(--green); background: rgba(74,158,107,0.08); }
+  .nav-icon svg { width: 15px; height: 15px; fill: currentColor; }
+
+  /* HERO */
+  .hero { min-height: 100vh; display: grid; grid-template-columns: 52% 48%; }
+  .hero-left { display: flex; flex-direction: column; justify-content: center; padding: 110px 56px 72px; z-index: 2; }
+  .eyebrow { font-size: 15px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--green); margin-bottom: 28px; opacity: 0; animation: up 0.7s ease forwards 0.15s; }
+  .hero-name { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(54px, 6.5vw, 96px); line-height: 1.0; opacity: 0; animation: up 0.7s ease forwards 0.3s; }
+  .hero-name em { font-style: italic; color: var(--green); }
+  .hero-placeholder { margin-top: 32px; max-width: 420px; opacity: 0; animation: up 0.7s ease forwards 0.5s; }
+  .hero-placeholder-box { border: 1px dashed rgba(74,158,107,0.35); border-radius: 4px; padding: 16px 20px; font-family: 'DM Sans', sans-serif; font-size: 18px; color: var(--muted); line-height: 1.7; font-weight: 300; }
+  .hero-placeholder-box .ph-label { display: block; font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--green-dim); margin-bottom: 8px; }
+  .hero-bio-box { border: 1px solid var(--line); border-radius: 4px; padding: 16px 20px; font-family: 'DM Sans', sans-serif; font-size: 18px; color: var(--muted); line-height: 1.7; font-weight: 300; }
+
+  /* STATS */
+  .stats { display: flex; flex-wrap: wrap; gap: 32px 40px; margin-top: 52px; padding-top: 36px; border-top: 1px solid var(--line); opacity: 0; animation: up 0.7s ease forwards 0.65s; }
+  .stat-n { font-family: 'Cormorant Garamond', serif; font-size: 56px; font-weight: 300; color: var(--green); line-height: 1; display: block; }
+  .stat-l { display: block; font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); margin-top: 5px; font-family: 'DM Sans', sans-serif; }
+
+  /* HERO RIGHT */
+  .hero-right { position: relative; overflow: hidden; border-left: 1px solid var(--line); }
+  .grid-bg { position: absolute; inset: 0; background-image: linear-gradient(var(--line-soft) 1px, transparent 1px), linear-gradient(90deg, var(--line-soft) 1px, transparent 1px); background-size: 52px 52px; }
+  .hero-right::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 60% 30%, rgba(74,158,107,0.07) 0%, transparent 60%); z-index: 2; pointer-events: none; }
+  .hero-photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 20%; filter: grayscale(10%) contrast(1.08) brightness(0.92); opacity: 0; animation: fadeIn 1.2s ease forwards 0.6s; z-index: 1; }
+  .hero-right::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 250px; background: linear-gradient(to top, var(--black), transparent); z-index: 3; }
+  .hero-right .overlay-left { position: absolute; top: 0; bottom: 0; left: 0; width: 80px; background: linear-gradient(to right, var(--black), transparent); z-index: 3; pointer-events: none; }
+  .hero-right .overlay-top { position: absolute; top: 0; left: 0; right: 0; height: 120px; background: linear-gradient(to bottom, var(--black), transparent); z-index: 3; pointer-events: none; }
+
+  /* MARQUEE */
+  .marquee-wrap { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: rgba(74,158,107,0.025); padding: 16px 0; overflow: hidden; white-space: nowrap; position: relative; }
+  .marquee-wrap::before, .marquee-wrap::after { content: ''; position: absolute; top: 0; bottom: 0; width: 80px; z-index: 2; }
+  .marquee-wrap::before { left: 0; background: linear-gradient(to right, var(--black), transparent); }
+  .marquee-wrap::after  { right: 0; background: linear-gradient(to left, var(--black), transparent); }
+  .marquee-track { display: inline-flex; animation: marquee 35s linear infinite; }
+  .marquee-track:hover { animation-play-state: paused; }
+  .marquee-item { display: inline-flex; align-items: center; gap: 24px; padding: 0 24px; font-size: 15px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); font-family: 'DM Sans', sans-serif; }
+  .marquee-item .dot { width: 4px; height: 4px; border-radius: 50%; background: var(--green); flex-shrink: 0; }
+  .marquee-item.hi { color: var(--green); }
+
+  /* PULL QUOTE */
+  .pq-wrap { padding: 88px 56px; max-width: 1100px; margin: 0 auto; text-align: center; position: relative; border-bottom: 1px solid var(--line); }
+  .pq-wrap::before { content: '\201C'; position: absolute; top: 24px; left: 50%; transform: translateX(-50%); font-family: 'Cormorant Garamond', serif; font-size: 140px; line-height: 1; color: rgba(74,158,107,0.08); user-select: none; }
+  .pq { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-style: italic; font-size: clamp(26px, 3.8vw, 48px); line-height: 1.35; color: var(--white); position: relative; z-index: 1; }
+  .pq em { color: var(--green); font-style: normal; }
+
+  /* ABOUT */
+  .about-section { border-bottom: 1px solid var(--line); }
+  .roles-row { max-width: 1100px; margin: 0 auto; padding: 0 56px; display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--line); border-left: 1px solid var(--line); border-right: 1px solid var(--line); }
+  .bio-row, .impact-row { max-width: 1100px; margin: 0 auto; padding: 0 56px; background: var(--line); border-left: 1px solid var(--line); border-right: 1px solid var(--line); border-top: 1px solid var(--line); }
+  .band-card { background: var(--black); padding: 40px 36px; transition: background 0.3s; }
+  .band-card:hover { background: rgba(74,158,107,0.04); }
+  .bio-card, .impact-card { background: var(--black); padding: 40px 36px; }
+  .band-label { font-size: 13px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--green); margin-bottom: 14px; display: block; font-family: 'DM Sans', sans-serif; }
+  .band-title { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 400; color: var(--white); line-height: 1.35; margin-bottom: 6px; }
+  .band-org { font-size: 14px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--green-dim); margin-bottom: 14px; display: block; font-family: 'DM Sans', sans-serif; }
+  .band-sub { font-size: 18px; color: var(--muted); line-height: 1.7; font-family: 'DM Sans', sans-serif; font-weight: 300; }
+
+  /* BIO */
+  .bio-excerpt { font-size: 18px; color: var(--muted); line-height: 1.85; font-family: 'DM Sans', sans-serif; font-weight: 300; }
+  .bio-full { font-size: 18px; color: var(--muted); line-height: 1.85; font-family: 'DM Sans', sans-serif; font-weight: 300; display: none; margin-top: 20px; }
+  .bio-full p + p { margin-top: 14px; }
+  .bio-full.open { display: block; }
+  .bio-toggle { margin-top: 20px; display: inline-flex; align-items: center; gap: 8px; font-size: 13px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--green); cursor: pointer; background: none; border: none; font-family: 'DM Sans', sans-serif; transition: opacity 0.2s; padding: 0; }
+  .bio-toggle:hover { opacity: 0.7; }
+  .bio-toggle .arrow { transition: transform 0.3s; display: inline-block; }
+
+  /* THESIS */
+  .thesis-lead { max-width: 1100px; margin: 0 auto; padding: 0 56px; }
+  .thesis-lead-card { background: var(--black); padding: 40px 36px; border: 1px solid var(--line); border-top: none; }
+  .thesis-lead-text { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 300; font-style: italic; color: var(--white); line-height: 1.5; max-width: 760px; }
+  .thesis-lead-text em { color: var(--green); font-style: normal; }
+  .thesis-grid { max-width: 1100px; margin: 0 auto; padding: 0 56px; display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--line); border-left: 1px solid var(--line); border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .thesis-card { background: var(--black); padding: 36px 32px; transition: background 0.3s; }
+  .thesis-card:hover { background: rgba(74,158,107,0.04); }
+  .thesis-icon { width: 48px; height: 48px; border: 1px solid var(--line); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; }
+  .thesis-icon svg { width: 22px; height: 22px; stroke: var(--green); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+  .thesis-title { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 400; color: var(--white); line-height: 1.3; margin-bottom: 10px; }
+  .thesis-desc { font-size: 17px; color: var(--muted); line-height: 1.7; font-family: 'DM Sans', sans-serif; font-weight: 300; }
+  .thesis-tags { margin-top: 14px; display: flex; flex-wrap: wrap; gap: 6px; }
+  .thesis-tag { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--green-dim); border: 1px solid var(--line); padding: 4px 10px; border-radius: 3px; font-family: 'DM Sans', sans-serif; }
+  .thesis-bottom { max-width: 1100px; margin: 0 auto; padding: 0 56px; }
+  .thesis-bottom-card { background: var(--black); padding: 32px 36px; border: 1px solid var(--line); border-top: none; display: flex; flex-wrap: wrap; gap: 24px 48px; }
+  .thesis-meta { font-size: 16px; color: var(--muted); font-family: 'DM Sans', sans-serif; font-weight: 300; }
+  .thesis-meta strong { color: var(--green); font-weight: 400; font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; display: block; margin-bottom: 4px; }
+  @media (max-width: 820px) {
+    .thesis-grid { grid-template-columns: 1fr; padding: 0 20px; }
+    .thesis-lead, .thesis-bottom { padding: 0 20px; }
+    .thesis-bottom-card { flex-direction: column; gap: 16px; }
+  }
+
+  /* SECTION LABEL */
+  .section-label-row { max-width: 1100px; margin: 0 auto; padding: 56px 56px 24px; }
+  .section-label { font-size: 13px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--green); display: flex; align-items: center; gap: 16px; font-family: 'DM Sans', sans-serif; }
+  .section-label::after { content: ''; flex: 1; height: 1px; background: var(--line); }
+
+  /* CONTACT */
+  .contact-wrap { max-width: 1100px; margin: 0 auto; padding: 88px 56px; display: flex; flex-direction: column; align-items: center; text-align: center; border-top: 1px solid var(--line); gap: 48px; }
+  .contact-hed { font-family: 'Cormorant Garamond', serif; font-size: clamp(36px, 4.5vw, 62px); font-weight: 300; line-height: 1.2; }
+  .contact-hed em { color: var(--green); font-style: italic; }
+  .contact-icons { display: flex; gap: 36px; align-items: center; justify-content: center; }
+  .contact-icon-link { display: flex; flex-direction: column; align-items: center; gap: 10px; text-decoration: none; transition: all 0.25s; }
+  .contact-icon-circle { width: 56px; height: 56px; border: 1px solid var(--line); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--muted); transition: all 0.25s; }
+  .contact-icon-circle svg { width: 22px; height: 22px; }
+  .contact-icon-link:hover .contact-icon-circle { border-color: var(--green); color: var(--green); background: rgba(74,158,107,0.08); }
+  .contact-icon-label { font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); font-family: 'DM Sans', sans-serif; transition: color 0.25s; }
+  .contact-icon-link:hover .contact-icon-label { color: var(--green); }
+
+  /* FOOTER */
+  footer { border-top: 1px solid var(--line); padding: 24px 56px; display: flex; justify-content: space-between; align-items: center; font-size: 15px; color: var(--muted); font-family: 'DM Sans', sans-serif; }
+  .footer-r { font-size: 13px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--green-dim); }
+
+  /* ANIMATIONS */
+  @keyframes up { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.on { opacity: 1; transform: none; }
+
+  /* RESPONSIVE */
+  @media (max-width: 820px) {
+    nav { padding: 14px 20px; }
+    .hero { grid-template-columns: 1fr; } .hero-right { height: 60vw; min-height: 300px; } .hero-left { padding: 100px 24px 56px; }
+    .pq-wrap { padding: 56px 24px; }
+    .section-label-row { padding: 40px 24px 16px; }
+    .roles-row { grid-template-columns: 1fr; padding: 0 20px; }
+    .bio-row, .impact-row { padding: 0 20px; }
+    .impact-grid { grid-template-columns: 1fr; }
+    .contact-wrap { padding: 64px 24px; gap: 36px; }
+    footer { padding: 20px 24px; flex-direction: column; gap: 8px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">Babar Khalid Khan</a>
+  <div class="nav-right">
+    <a class="nav-icon" href="https://linkedin.com/in/babark" target="_blank" title="LinkedIn">
+      <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+    </a>
+    <a class="nav-icon" href="https://x.com/babarkkhan" target="_blank" title="X">
+      <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+    </a>
+    <a class="nav-icon" href="https://app.reclaim.ai/m/bkhan/sync" target="_blank" title="Book time">
+      <svg viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20a2 2 0 002 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11zm0-13H5V6h14v1zM7 11h5v5H7z"/></svg>
+    </a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <p class="eyebrow">Investor · Scientist · Technologist</p>
+    <h1 class="hero-name">Babar<br><em>Khalid Khan</em><br>PhD</h1>
+    <div class="hero-placeholder">
+      <div class="hero-bio-box">
+        Investor-Scientist bridging technology expertise with venture capital. Founder, Operator at AI Data Co. Inducted into MIT Innovator Under 35 in 2019. Competitive eSports player since 2008.
+      </div>
+    </div>
+    <div class="stats">
+      <div><span class="stat-n" data-target="150" data-prefix="$" data-suffix="M">$0M</span><span class="stat-l">Deployed</span></div>
+      <div><span class="stat-n" data-target="20" data-suffix="+">0+</span><span class="stat-l">Years Exp.</span></div>
+      <div><span class="stat-n" data-target="4">0</span><span class="stat-l">Board Roles</span></div>
+      <div><span class="stat-n" data-target="5">0</span><span class="stat-l">Publications</span></div>
+      <div><span class="stat-n" data-target="3">0</span><span class="stat-l">US Patents</span></div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="grid-bg"></div>
+    <div class="overlay-left"></div>
+    <div class="overlay-top"></div>
+    <img class="hero-photo" src="photo-profile.jpg" alt="Babar Khalid Khan">
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span class="marquee-item hi">Trilingual<span class="dot"></span></span>
+    <span class="marquee-item">35+ Countries Explored<span class="dot"></span></span>
+    <span class="marquee-item hi">US Citizen<span class="dot"></span></span>
+    <span class="marquee-item">12+ Years in the Middle East<span class="dot"></span></span>
+    <span class="marquee-item hi">Saudi Premium Residency<span class="dot"></span></span>
+    <span class="marquee-item">UAE Golden Residency<span class="dot"></span></span>
+    <span class="marquee-item hi">Trilingual<span class="dot"></span></span>
+    <span class="marquee-item">35+ Countries Explored<span class="dot"></span></span>
+    <span class="marquee-item hi">US Citizen<span class="dot"></span></span>
+    <span class="marquee-item">12+ Years in the Middle East<span class="dot"></span></span>
+    <span class="marquee-item hi">Saudi Premium Residency<span class="dot"></span></span>
+    <span class="marquee-item">UAE Golden Residency<span class="dot"></span></span>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<div class="about-section" id="about">
+
+  <div class="section-label-row reveal">
+    <p class="section-label">Investment Thesis</p>
+  </div>
+
+  <div class="thesis-lead reveal">
+    <div class="thesis-lead-card">
+      <p class="thesis-lead-text">The most consequential companies of the next decade will be built at the intersection of <em>deep technology</em>, <em>applied AI</em>, and <em>sovereign capital</em> seeking real-world outcomes. I invest where these forces meet — backing founders who translate hard science into scalable platforms.</p>
+    </div>
+  </div>
+
+  <div class="thesis-grid reveal">
+
+    <div class="thesis-card">
+      <div class="thesis-icon">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v4m0 12v4m-7.07-15.07 2.83 2.83m8.48 8.48 2.83 2.83M2 12h4m12 0h4M4.93 4.93l2.83 2.83m8.48 8.48 2.83 2.83"/></svg>
+      </div>
+      <h3 class="thesis-title">Biomanufacturing & Industrial Biology</h3>
+      <p class="thesis-desc">Cell-cultured proteins, precision fermentation, bio-based materials. The GCC is investing billions to build food and pharma sovereignty — I structure JVs to bring these technologies in-country.</p>
+      <div class="thesis-tags">
+        <span class="thesis-tag">Cell-Ag</span>
+        <span class="thesis-tag">Fermentation</span>
+        <span class="thesis-tag">Bio-Materials</span>
+      </div>
+    </div>
+
+    <div class="thesis-card">
+      <div class="thesis-icon">
+        <svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+      </div>
+      <h3 class="thesis-title">Health & Therapeutics</h3>
+      <p class="thesis-desc">Novel modalities for antimicrobial resistance — lysins, phage, host-directed therapies. Digital biomarkers, brain-computer interfaces, and agentic AI compressing the distance between data and clinical decisions.</p>
+      <div class="thesis-tags">
+        <span class="thesis-tag">AMR</span>
+        <span class="thesis-tag">Digital Health</span>
+        <span class="thesis-tag">Neurotech</span>
+      </div>
+    </div>
+
+    <div class="thesis-card">
+      <div class="thesis-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+      </div>
+      <h3 class="thesis-title">AI Infrastructure</h3>
+      <p class="thesis-desc">Multilingual and low-resource AI — frontier models are English-dominant; the economic opportunity in making them work for Arabic, Urdu, and languages spoken by billions is enormous. AI-native drug discovery compressing timelines and capital intensity.</p>
+      <div class="thesis-tags">
+        <span class="thesis-tag">Low-Resource NLP</span>
+        <span class="thesis-tag">AI for Science</span>
+        <span class="thesis-tag">Data Infra</span>
+      </div>
+    </div>
+
+    <div class="thesis-card">
+      <div class="thesis-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <h3 class="thesis-title">What I Look For</h3>
+      <p class="thesis-desc">Founders with deep domain expertise. Platform technology with multi-market optionality. Technical moats — proprietary data, novel architectures, or domain-specific training that can't be replicated by prompting a foundation model.</p>
+      <div class="thesis-tags">
+        <span class="thesis-tag">Domain Experts</span>
+        <span class="thesis-tag">Capital Efficient</span>
+        <span class="thesis-tag">GCC-Ready</span>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="thesis-bottom reveal">
+    <div class="thesis-bottom-card">
+      <div class="thesis-meta"><strong>Stage</strong>Series A & B · Selectively Seed</div>
+      <div class="thesis-meta"><strong>Check Size</strong>$5M – $50M (institutional)</div>
+      <div class="thesis-meta"><strong>Geography</strong>Global with GCC expansion appetite</div>
+      <a href="thesis.html" style="display: inline-flex; align-items: center; gap: 8px; font-size: 14px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--green); text-decoration: none; font-family: 'DM Sans', sans-serif; margin-left: auto; transition: opacity 0.25s;">Read Full Thesis →</a>
+    </div>
+  </div>
+
+  <!-- SECTION DIVIDER -->
+  <div style="max-width: 1100px; margin: 64px auto 0; padding: 0 56px;">
+    <div style="height: 1px; background: linear-gradient(to right, transparent, var(--green), transparent);"></div>
+  </div>
+
+  <div class="section-label-row reveal" style="padding-top: 56px;">
+    <p class="section-label">Current Roles</p>
+  </div>
+
+  <div class="roles-row reveal">
+    <div class="band-card">
+      <span class="band-label">Since 2019</span>
+      <p class="band-title">Head, Technology Investments</p>
+      <span class="band-org">NEOM Investment Fund · Riyadh</span>
+      <p class="band-sub">Invest and manage portfolio across Biotech, Healthcare, Agri-food, and Blockchain. Special focus on advanced biomanufacturing.</p>
+    </div>
+    <div class="band-card">
+      <span class="band-label">Since 2024</span>
+      <p class="band-title">Co-Founder</p>
+      <span class="band-org">AI Astrolabe · USA</span>
+      <p class="band-sub">Operating role; we deliver high-quality multimodal curated data to power frontier AI models and agents with specific expertise in low-resource languages.</p>
+    </div>
+  </div>
+
+  <!-- SECTION DIVIDER -->
+  <div style="max-width: 1100px; margin: 64px auto 0; padding: 0 56px;">
+    <div style="height: 1px; background: linear-gradient(to right, transparent, var(--green), transparent);"></div>
+  </div>
+
+  <div class="section-label-row reveal" style="padding-top: 56px;">
+    <p class="section-label">Biography</p>
+  </div>
+
+  <div class="bio-row reveal">
+    <div class="bio-card">
+      <p class="bio-excerpt">Babar Khan, Ph.D. is a scientist, entrepreneur, and business leader with over 20 years of experience bridging academia and industry across life sciences, technology, and AI. The second of eight children in a first-generation immigrant family, Babar grew up in upstate New York, attended public schools, and built a career defined by a combination of rigorous science, venture capital, and a commitment to using both for impact. Named to MIT Technology Review's "Innovators Under 35" (2019), he has built a career at the intersection of cutting-edge research and real-world impact — from the lab bench to global investment and AI ventures.</p>
+      <p class="bio-excerpt" style="margin-top: 18px;">Babar leads disruptive technology investments at the NEOM Investment Fund and is co-founder of AI Astrolabe, a venture focused on bridging the high-quality multimodal data gap in frontier AI development. His industry roots trace back to Genzyme Genetics and GE Global Research, before he joined Contrafect, a NYC biotech tackling multi-drug resistant bacteria, as one of the first scientists hired.</p>
+      <p class="bio-excerpt" style="margin-top: 18px;">A lifelong educator and community builder, Babar delivers leadership, entrepreneurship, and project management workshops as President of KAUST's alumni network. He lives in Riyadh with his wife and five children, and is deeply committed to planetary health and building a better world for the next generation.</p>
+    </div>
+  </div>
+
+
+</div>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-wrap">
+    <div class="reveal">
+      <h2 class="contact-hed">Let's connect on something<br><em>meaningful.</em></h2>
+    </div>
+    <div class="contact-icons reveal">
+      <a class="contact-icon-link" href="mailto:babar@babarkkhan.com" title="Email">
+        <div class="contact-icon-circle">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <span class="contact-icon-label">Email</span>
+      </a>
+      <a class="contact-icon-link" href="https://linkedin.com/in/babark" target="_blank" title="LinkedIn">
+        <div class="contact-icon-circle">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </div>
+        <span class="contact-icon-label">LinkedIn</span>
+      </a>
+      <a class="contact-icon-link" href="https://x.com/babarkkhan" target="_blank" title="X">
+        <div class="contact-icon-circle">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </div>
+        <span class="contact-icon-label">X</span>
+      </a>
+      <a class="contact-icon-link" href="https://app.reclaim.ai/m/bkhan" target="_blank" title="Sync">
+        <div class="contact-icon-circle">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20a2 2 0 002 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11zm0-13H5V6h14v1zM7 11h5v5H7z"/></svg>
+        </div>
+        <span class="contact-icon-label">Sync</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>© 2026 Babar Khalid Khan · babarkkhan.com</span>
+  <span class="footer-r">Riyadh · New York · Global</span>
+</footer>
+
+<script>
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); } });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  function easeOut(t) { return 1 - Math.pow(1 - t, 3); }
+  function animateStat(el) {
+    const target = parseInt(el.dataset.target), prefix = el.dataset.prefix||'', suffix = el.dataset.suffix||'';
+    const duration = 1800, start = performance.now();
+    (function tick(now) {
+      const p = Math.min((now - start) / duration, 1);
+      el.textContent = prefix + Math.round(easeOut(p) * target) + suffix;
+      if (p < 1) requestAnimationFrame(tick);
+    })(start);
+  }
+  const so = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { setTimeout(() => document.querySelectorAll('.stat-n[data-target]').forEach(animateStat), 800); so.unobserve(e.target); } });
+  }, { threshold: 0.5 });
+  so.observe(document.querySelector('.stats'));
+</script>
+</body>
+</html>

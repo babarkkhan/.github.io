@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Investment Thesis — Babar Khalid Khan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --black: #080909;
+    --white: #f5f2ee;
+    --green: #4a9e6b;
+    --green-dim: #1a5c3a;
+    --green-bright: #6db88a;
+    --muted: #6b6560;
+    --line: rgba(74,158,107,0.2);
+    --line-soft: rgba(74,158,107,0.1);
+  }
+  html { scroll-behavior: smooth; }
+  body { background: var(--black); color: var(--white); font-family: 'Syne', sans-serif; overflow-x: hidden; }
+  body::after { content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 999; opacity: 0.4;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E"); }
+
+  /* NAV */
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 18px 48px; border-bottom: 1px solid var(--line); background: rgba(8,9,9,0.92); backdrop-filter: blur(14px); }
+  .nav-logo { font-family: 'DM Sans', sans-serif; font-weight: 300; font-size: 19px; letter-spacing: 0.06em; color: var(--green); text-decoration: none; }
+  .nav-right { display: flex; gap: 12px; align-items: center; }
+  .nav-icon { width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; border: 1px solid var(--line); border-radius: 50%; color: var(--muted); text-decoration: none; transition: all 0.25s; }
+  .nav-icon:hover { border-color: var(--green); color: var(--green); background: rgba(74,158,107,0.08); }
+  .nav-icon svg { width: 15px; height: 15px; fill: currentColor; }
+  .nav-back { font-family: 'DM Sans', sans-serif; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.25s; display: flex; align-items: center; gap: 8px; }
+  .nav-back:hover { color: var(--green); }
+
+  /* HERO */
+  .thesis-hero { padding: 160px 56px 80px; max-width: 900px; margin: 0 auto; border-bottom: 1px solid var(--line); }
+  .thesis-eyebrow { font-size: 14px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--green); margin-bottom: 28px; font-family: 'DM Sans', sans-serif; opacity: 0; animation: up 0.7s ease forwards 0.15s; }
+  .thesis-h1 { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(40px, 5vw, 72px); line-height: 1.1; opacity: 0; animation: up 0.7s ease forwards 0.3s; }
+  .thesis-h1 em { font-style: italic; color: var(--green); }
+  .thesis-subtitle { margin-top: 28px; font-family: 'DM Sans', sans-serif; font-size: 19px; color: var(--muted); line-height: 1.8; font-weight: 300; max-width: 700px; opacity: 0; animation: up 0.7s ease forwards 0.5s; }
+
+  /* CONTENT */
+  .thesis-content { max-width: 900px; margin: 0 auto; padding: 0 56px; }
+  .thesis-section { padding: 64px 0; border-bottom: 1px solid var(--line); }
+  .thesis-section:last-child { border-bottom: none; }
+  .ts-label { font-size: 13px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--green); margin-bottom: 32px; display: flex; align-items: center; gap: 16px; font-family: 'DM Sans', sans-serif; }
+  .ts-label::after { content: ''; flex: 1; height: 1px; background: var(--line); }
+  .ts-h2 { font-family: 'Cormorant Garamond', serif; font-size: 34px; font-weight: 400; color: var(--white); line-height: 1.3; margin-bottom: 20px; }
+  .ts-h3 { font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 400; color: var(--white); line-height: 1.3; margin-top: 36px; margin-bottom: 14px; }
+  .ts-p { font-size: 18px; color: var(--muted); line-height: 1.85; font-family: 'DM Sans', sans-serif; font-weight: 300; }
+  .ts-p + .ts-p { margin-top: 16px; }
+  .ts-p em { color: var(--green-bright); font-style: normal; }
+  .ts-list { list-style: none; margin-top: 16px; }
+  .ts-list li { font-size: 18px; color: var(--muted); line-height: 1.85; font-family: 'DM Sans', sans-serif; font-weight: 300; padding: 8px 0 8px 24px; position: relative; border-bottom: 1px solid var(--line-soft); }
+  .ts-list li:last-child { border-bottom: none; }
+  .ts-list li::before { content: ''; position: absolute; left: 0; top: 18px; width: 6px; height: 6px; border-radius: 50%; background: var(--green); }
+  .ts-highlight { background: rgba(74,158,107,0.06); border-left: 2px solid var(--green); padding: 24px 28px; margin: 24px 0; border-radius: 0 4px 4px 0; }
+  .ts-highlight p { font-family: 'DM Sans', sans-serif; font-size: 18px; color: var(--white); line-height: 1.75; font-weight: 300; }
+
+  /* TABLE */
+  .ts-table-wrap { margin: 24px 0; overflow-x: auto; }
+  .ts-table { width: 100%; border-collapse: collapse; font-family: 'DM Sans', sans-serif; font-size: 16px; }
+  .ts-table th { font-size: 12px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--green); padding: 12px 16px; text-align: left; border-bottom: 1px solid var(--line); font-weight: 400; }
+  .ts-table td { padding: 14px 16px; color: var(--muted); border-bottom: 1px solid var(--line-soft); font-weight: 300; }
+  .ts-table tr:hover td { color: var(--white); background: rgba(74,158,107,0.03); }
+  .ts-table .status-active { color: var(--green); }
+
+  /* CTA */
+  .thesis-cta { max-width: 900px; margin: 0 auto; padding: 80px 56px; text-align: center; }
+  .thesis-cta p { font-family: 'DM Sans', sans-serif; font-size: 19px; color: var(--muted); line-height: 1.8; font-weight: 300; max-width: 600px; margin: 0 auto 32px; }
+  .thesis-cta-links { display: flex; gap: 28px; justify-content: center; }
+  .thesis-cta-link { width: 48px; height: 48px; border: 1px solid var(--line); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--muted); text-decoration: none; transition: all 0.25s; }
+  .thesis-cta-link:hover { border-color: var(--green); color: var(--green); background: rgba(74,158,107,0.08); }
+  .thesis-cta-link svg { width: 20px; height: 20px; }
+
+  /* FOOTER */
+  footer { border-top: 1px solid var(--line); padding: 24px 56px; display: flex; justify-content: space-between; align-items: center; font-size: 15px; color: var(--muted); font-family: 'DM Sans', sans-serif; }
+  .footer-r { font-size: 13px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--green-dim); }
+
+  /* ANIMATIONS */
+  @keyframes up { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.on { opacity: 1; transform: none; }
+
+  @media (max-width: 820px) {
+    nav { padding: 14px 20px; }
+    .thesis-hero { padding: 120px 24px 56px; }
+    .thesis-content { padding: 0 24px; }
+    .thesis-cta { padding: 56px 24px; }
+    footer { padding: 20px 24px; flex-direction: column; gap: 8px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="index.html">Babar Khalid Khan</a>
+  <div class="nav-right">
+    <a class="nav-back" href="index.html">← Home</a>
+    <a class="nav-icon" href="https://linkedin.com/in/babark" target="_blank" title="LinkedIn">
+      <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+    </a>
+    <a class="nav-icon" href="https://x.com/babarkkhan" target="_blank" title="X">
+      <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+    </a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="thesis-hero">
+  <p class="thesis-eyebrow">Investment Thesis</p>
+  <h1 class="thesis-h1">Deep Tech × Applied AI ×<br><em>Sovereign Capital</em></h1>
+  <p class="thesis-subtitle">The most consequential companies of the next decade will be built at the intersection of deep technology, applied AI, and sovereign capital seeking real-world outcomes. I invest where these forces meet — backing founders who translate hard science into scalable platforms, with a particular edge in bridging US/global innovation to high-growth markets in the GCC and beyond.</p>
+</div>
+
+<!-- CONTENT -->
+<div class="thesis-content">
+
+  <!-- WHY ME -->
+  <div class="thesis-section reveal">
+    <p class="ts-label">The Differentiated Lens</p>
+
+    <h2 class="ts-h2">Technologist from the Start</h2>
+    <p class="ts-p">I built my first computer in '95 — a 286 with 1MB RAM — when I was 9 years old and spent the next decade as a technician in our family's IT business. I competed in esports in 2008 (Counter-Strike) before it was a career — because I've always been drawn to the frontier of whatever technology is reshaping how people live and work. That instinct carried into science, then into investing, and now into AI.</p>
+
+    <h2 class="ts-h2">Scientist by Training, Investor by Practice</h2>
+    <p class="ts-p">PhD in Bioscience (KAUST), MS in Microbiology (Rutgers) — earned while working full-time at Genzyme Genetics — with hands-on drug development experience from target discovery through IND-enabling studies and Phase I clinical trial design. I've built high-throughput screening systems, authored clinical laboratory standards (CLSI), and hold 3 US patents. When a founder walks me through their data or mechanism of action, I'm evaluating it — not outsourcing that judgment.</p>
+
+    <h2 class="ts-h2">Operator</h2>
+    <p class="ts-p">At AI Astrolabe, the company I founded to deliver high-quality multimodal data for frontier AI, I handle all business operations using an actual AI-first approach — legal, finance, contracting, fundraising. I'm not an armchair investor; I know what it feels like to make payroll, close a customer, and build systems from zero.</p>
+
+    <h2 class="ts-h2">Deployer of Sovereign-Scale Capital</h2>
+    <p class="ts-p">At the NEOM Investment Fund, I lead the life science portfolio and structure joint ventures to build "Industries of the Future" in Saudi Arabia. I present to an Investment Committee chaired by the Governor of PIF and navigate board-level approvals involving Saudi ministers and regulators. I understand what it takes to move capital through complex institutional frameworks — and I know how to de-risk deals for co-investors who want GCC exposure without the opacity.</p>
+
+    <h2 class="ts-h2">Connector Across Ecosystems</h2>
+    <p class="ts-p">American citizen, Saudi Premium Resident, UAE Golden Visa holder. Fluent across Western and South Asian cultures. 35+ countries. Strong networks spanning US venture, GCC sovereign wealth, and global policy circles (WEF, Milken). I don't just source deals — I unlock markets for portfolio companies.</p>
+  </div>
+
+  <!-- WHERE I INVEST -->
+  <div class="thesis-section reveal">
+    <p class="ts-label">Where I Invest</p>
+
+    <div class="ts-highlight">
+      <p>I treat biology as an engineering discipline and AI as the horizontal accelerant across everything I invest in. The best companies in my portfolio are technology companies — some happen to work in living systems, others in data infrastructure — but they share a common architecture: <em>deep technical moats, platform optionality, and founders who understand the science as well as the market.</em></p>
+    </div>
+
+    <h3 class="ts-h3">Biomanufacturing & Industrial Biology</h3>
+    <p class="ts-p">Cell-cultured proteins, precision fermentation, bio-based materials. The GCC is investing billions to build food and pharma sovereignty; I structure JVs to bring these technologies in-country. Companies that can license or localize production for Middle East and APAC markets have a second growth vector most US VCs overlook.</p>
+
+    <h3 class="ts-h3">Health & Therapeutics</h3>
+    <p class="ts-p"><em>Antimicrobial Resistance (AMR) & novel therapeutics</em> — My PhD domain. AMR is a slow-moving pandemic with massive unmet need and growing regulatory tailwinds (PASTEUR Act, CARB-X, WHO priority pathogens). I look for novel modalities — lysins, phage, host-directed therapies — where mechanism-of-action differentiation creates defensible IP.</p>
+    <p class="ts-p"><em>Healthcare & digital tools</em> — Platforms that bring computation into clinical workflows — digital biomarkers enabling decentralized trials, brain-computer interfaces moving from research to therapeutic devices, agentic AI automating healthcare operations. The common thread: technology that compresses the distance between data and clinical decision-making.</p>
+    <p class="ts-p"><em>AI for science & drug discovery</em> — Computational biology, generative chemistry, ML-driven target identification. The thesis isn't "AI will replace pharma R&D" — it's that AI-native companies will compress timelines and reduce capital intensity for the therapeutic bets above.</p>
+
+    <h3 class="ts-h3">AI Infrastructure</h3>
+    <p class="ts-p"><em>Multilingual & low-resource AI</em> — This is personal. I founded AI Astrolabe to build human-curated multimodal datasets for low-resource languages. Frontier models are English-dominant; the economic opportunity in making them work for Arabic, Urdu, and other languages spoken by billions is enormous.</p>
+  </div>
+
+  <!-- WHAT I LOOK FOR -->
+  <div class="thesis-section reveal">
+    <p class="ts-label">What I Look For</p>
+    <ul class="ts-list">
+      <li>Founders with deep domain expertise — experience in the industry always helps</li>
+      <li>Platform technology with multi-indication or multi-market optionality</li>
+      <li>Technical moats — proprietary data, novel architectures, or domain-specific training that can't be replicated by prompting a foundation model</li>
+      <li>Clear regulatory pathway with identified de-risking milestones</li>
+      <li>Capital efficiency — not just burn rate, but thoughtful use of non-dilutive funding (grants, partnerships, government programs)</li>
+      <li>Potential for GCC deployment as a value-add I bring directly</li>
+    </ul>
+  </div>
+
+  <!-- HOW I OPERATE -->
+  <div class="thesis-section reveal">
+    <p class="ts-label">How I Operate</p>
+
+    <div class="ts-highlight">
+      <p><em>Stage:</em> Primarily Series A and B, selectively at seed where I have deep domain conviction. Check sizes have ranged from $5M to $50M in institutional contexts.</p>
+      <p style="margin-top: 12px;"><em>Geography:</em> Companies with global ambitions, especially those with an appetite for GCC expansion.</p>
+    </div>
+
+    <h3 class="ts-h3">Value-Add Beyond Capital</h3>
+    <ul class="ts-list">
+      <li><em>GCC market access</em> — 12+ years building relationships with Saudi ministries (MEWA, MOH, SFDA, Ministry of Investment, Ministry of Industry), PIF portfolio companies, KAUST, and RDIA. For portfolio companies exploring Middle East expansion, licensing, or sovereign co-investment, I'm a direct bridge.</li>
+      <li><em>Regulatory & scientific diligence</em> — I do my own technical diligence. For co-investors, this is a differentiator — I can underwrite tech risk, not just market-size slides.</li>
+      <li><em>Board governance</em> — I sit on multiple boards and understand the discipline required to represent institutional capital. I bring structure, get invited to strategy retreats, and spend meaningful time with management.</li>
+      <li><em>Founder mentorship</em> — Being a founder myself (AI Astrolabe) and a scientist who transitioned into investing, I understand the translation problem. I help technical founders communicate with institutional capital and navigate the pivot from project to company.</li>
+    </ul>
+  </div>
+
+  <!-- MACRO TAILWINDS -->
+  <div class="thesis-section reveal">
+    <p class="ts-label">Macro Tailwinds</p>
+    <ul class="ts-list">
+      <li><em>GCC diversification</em> — Saudi Arabia, UAE, and the broader Gulf are deploying hundreds of billions into biotech, health, food, and AI as part of national transformation agendas. I've been inside this machinery since 2014.</li>
+      <li><em>US-GCC capital corridor</em> — Cross-border investment between the US and Gulf is accelerating. Founders and GPs who can navigate both sides will have a structural advantage in fundraising and market access.</li>
+      <li><em>AI as a horizontal enabler</em> — AI is compressing the cost and timeline of drug discovery, diagnostics, and biomanufacturing. Companies that are AI-native from day one will outperform incumbents in capital efficiency.</li>
+      <li><em>Regulatory modernization</em> — SFDA, MEWA, and Saudi health regulators are actively building frameworks for novel therapeutics, digital health, and cultivated proteins. Early movers who engage these regulators now will lock in first-mover advantages.</li>
+    </ul>
+  </div>
+
+  <!-- TRACK RECORD -->
+  <div class="thesis-section reveal">
+    <p class="ts-label">Track Record (Selected)</p>
+    <div class="ts-table-wrap">
+      <table class="ts-table">
+        <thead>
+          <tr><th>Company</th><th>Sector</th><th>Stage</th><th>Role</th><th>Status</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Sonde Health</td><td>Digital Health / Diagnostics</td><td>Series A</td><td>Supported Transaction</td><td class="status-active">Active</td></tr>
+          <tr><td>BlueNalu</td><td>Cell-Cultured Seafood</td><td>Series B</td><td>Board Member</td><td class="status-active">Active</td></tr>
+          <tr><td>Liberation Bioindustries</td><td>Industrial Biotech</td><td>Series A</td><td>Board Member</td><td class="status-active">Active</td></tr>
+          <tr><td>Paradromics</td><td>Brain-Computer Interfaces</td><td>Series B</td><td>Board Observer</td><td class="status-active">Active</td></tr>
+          <tr><td>Animoca Brands</td><td>Gaming / Web3</td><td>Series C</td><td>Investor</td><td class="status-active">Active</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="ts-p" style="margin-top: 20px;">Earlier: Led preclinical therapeutic pipeline at ContraFect Corp (antimicrobial biotech), contributing to $20M financing round and eventual IPO.</p>
+  </div>
+
+</div>
+
+<!-- CTA -->
+<div class="thesis-cta reveal">
+  <p>I'm always open to meeting founders building at the frontier of technology — especially those who want an investor who can evaluate the science, structure the deal, and open the door to the fastest-growing capital markets in the world.</p>
+  <div class="thesis-cta-links">
+    <a class="thesis-cta-link" href="mailto:babar@babarkkhan.com" title="Email">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+    </a>
+    <a class="thesis-cta-link" href="https://linkedin.com/in/babark" target="_blank" title="LinkedIn">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+    </a>
+    <a class="thesis-cta-link" href="https://x.com/babarkkhan" target="_blank" title="X">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+    </a>
+    <a class="thesis-cta-link" href="https://app.reclaim.ai/m/bkhan" target="_blank" title="Sync">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20a2 2 0 002 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11zm0-13H5V6h14v1zM7 11h5v5H7z"/></svg>
+    </a>
+  </div>
+</div>
+
+<footer>
+  <span>© 2026 Babar Khalid Khan · babarkkhan.com</span>
+  <span class="footer-r">Riyadh · New York · Global</span>
+</footer>
+
+<script>
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); } });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
