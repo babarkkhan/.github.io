@@ -18,17 +18,8 @@
       padding: 40px 20px;
     }
 
-    h1 {
-      font-size: 1.75rem;
-      font-weight: 700;
-      margin-bottom: 6px;
-    }
-
-    .subtitle {
-      color: #6b7280;
-      margin-bottom: 32px;
-      font-size: 0.95rem;
-    }
+    h1 { font-size: 1.75rem; font-weight: 700; margin-bottom: 6px; }
+    .subtitle { color: #6b7280; margin-bottom: 32px; font-size: 0.95rem; }
 
     .card {
       background: #fff;
@@ -37,51 +28,55 @@
       padding: 28px 32px;
       width: 100%;
       max-width: 700px;
-      margin-bottom: 32px;
+      margin-bottom: 24px;
     }
 
-    .input-group {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
+    .card-title {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #9ca3af;
+      margin-bottom: 16px;
     }
 
-    label {
-      font-weight: 600;
-      font-size: 0.9rem;
-      color: #374151;
+    .fields {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 16px;
     }
 
-    .input-row {
-      display: flex;
-      gap: 12px;
-      align-items: center;
-    }
+    .fields.single { grid-template-columns: 1fr; }
 
-    .prefix {
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: #6b7280;
-    }
+    .input-group { display: flex; flex-direction: column; gap: 6px; }
+
+    label { font-weight: 600; font-size: 0.85rem; color: #374151; }
+
+    .input-row { display: flex; gap: 8px; align-items: center; }
+
+    .prefix { font-size: 1rem; font-weight: 600; color: #6b7280; }
+    .suffix { font-size: 1rem; font-weight: 600; color: #6b7280; }
 
     input[type="number"] {
       flex: 1;
-      padding: 10px 14px;
+      padding: 9px 12px;
       border: 1.5px solid #d1d5db;
       border-radius: 8px;
-      font-size: 1.1rem;
+      font-size: 1rem;
       transition: border-color 0.2s;
       outline: none;
+      min-width: 0;
     }
 
-    input[type="number"]:focus {
-      border-color: #4f46e5;
+    input[type="number"]:focus { border-color: #4f46e5; }
+
+    .error {
+      font-size: 0.75rem;
+      color: #dc2626;
+      min-height: 1rem;
     }
 
-    .hint {
-      font-size: 0.8rem;
-      color: #9ca3af;
-    }
+    .hint { font-size: 0.78rem; color: #9ca3af; }
 
     /* Table */
     .table-wrapper {
@@ -99,33 +94,21 @@
       box-shadow: 0 2px 12px rgba(0,0,0,0.08);
     }
 
-    thead tr {
-      background: #4f46e5;
-      color: #fff;
-    }
+    thead tr { background: #4f46e5; color: #fff; }
 
     thead th {
       padding: 14px 20px;
       text-align: left;
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       font-weight: 600;
-      letter-spacing: 0.04em;
+      letter-spacing: 0.05em;
       text-transform: uppercase;
     }
 
-    tbody tr {
-      border-bottom: 1px solid #f0f1f3;
-      transition: background 0.15s;
-    }
-
+    tbody tr { border-bottom: 1px solid #f0f1f3; transition: background 0.15s; }
     tbody tr:last-child { border-bottom: none; }
-
     tbody tr:hover { background: #f5f3ff; }
-
-    tbody td {
-      padding: 13px 20px;
-      font-size: 0.95rem;
-    }
+    tbody td { padding: 13px 20px; font-size: 0.95rem; }
 
     .margin-col { font-weight: 700; color: #4f46e5; }
     .price-col  { font-weight: 600; }
@@ -139,9 +122,9 @@
       font-weight: 600;
     }
 
-    .badge-low    { background: #fef9c3; color: #92400e; }
-    .badge-mid    { background: #dbeafe; color: #1e40af; }
-    .badge-high   { background: #d1fae5; color: #065f46; }
+    .badge-low  { background: #fef9c3; color: #92400e; }
+    .badge-mid  { background: #dbeafe; color: #1e40af; }
+    .badge-high { background: #d1fae5; color: #065f46; }
 
     .empty-state {
       text-align: center;
@@ -153,28 +136,55 @@
 </head>
 <body>
   <h1>Pricing Sensitivity Calculator</h1>
-  <p class="subtitle">Enter your cost to see the recommended price at each profit margin target.</p>
+  <p class="subtitle">Enter your cost and margin range to generate a sensitivity table.</p>
 
+  <!-- Cost input -->
   <div class="card">
-    <div class="input-group">
-      <label for="costInput">Product / Service Cost</label>
-      <div class="input-row">
-        <span class="prefix">$</span>
-        <input
-          id="costInput"
-          type="number"
-          min="0"
-          step="0.01"
-          placeholder="e.g. 100.00"
-          oninput="buildTable()"
-        />
+    <div class="card-title">Cost</div>
+    <div class="fields single">
+      <div class="input-group">
+        <label for="costInput">Product / Service Cost</label>
+        <div class="input-row">
+          <span class="prefix">$</span>
+          <input id="costInput" type="number" min="0" step="0.01"
+            placeholder="e.g. 100.00" oninput="buildTable()" />
+        </div>
+        <span class="hint">Profit margin = (Price − Cost) / Price × 100</span>
       </div>
-      <span class="hint">Profit margin = (Price − Cost) / Price × 100</span>
     </div>
   </div>
 
+  <!-- Margin range inputs -->
+  <div class="card">
+    <div class="card-title">Margin Range</div>
+    <div class="fields">
+      <div class="input-group">
+        <label for="minMargin">Min Margin</label>
+        <div class="input-row">
+          <input id="minMargin" type="number" min="1" max="99" step="1" value="50" oninput="buildTable()" />
+          <span class="suffix">%</span>
+        </div>
+      </div>
+      <div class="input-group">
+        <label for="maxMargin">Max Margin</label>
+        <div class="input-row">
+          <input id="maxMargin" type="number" min="1" max="99" step="1" value="80" oninput="buildTable()" />
+          <span class="suffix">%</span>
+        </div>
+      </div>
+      <div class="input-group">
+        <label for="increment">Increment</label>
+        <div class="input-row">
+          <input id="increment" type="number" min="1" max="50" step="1" value="5" oninput="buildTable()" />
+          <span class="suffix">%</span>
+        </div>
+      </div>
+    </div>
+    <div id="rangeError" class="error" style="margin-top:10px;"></div>
+  </div>
+
   <div class="table-wrapper">
-    <table id="sensitivityTable">
+    <table>
       <thead>
         <tr>
           <th>Margin %</th>
@@ -184,46 +194,76 @@
         </tr>
       </thead>
       <tbody id="tableBody">
-        <tr>
-          <td colspan="4" class="empty-state">Enter a cost above to generate the table.</td>
-        </tr>
+        <tr><td colspan="4" class="empty-state">Fill in the fields above to generate the table.</td></tr>
       </tbody>
     </table>
   </div>
 
   <script>
     function buildTable() {
-      const input = document.getElementById('costInput');
-      const tbody = document.getElementById('tableBody');
-      const cost  = parseFloat(input.value);
+      const tbody      = document.getElementById('tableBody');
+      const errorEl    = document.getElementById('rangeError');
+      const cost       = parseFloat(document.getElementById('costInput').value);
+      const minMargin  = parseFloat(document.getElementById('minMargin').value);
+      const maxMargin  = parseFloat(document.getElementById('maxMargin').value);
+      const increment  = parseFloat(document.getElementById('increment').value);
 
-      if (!input.value || isNaN(cost) || cost <= 0) {
-        tbody.innerHTML = '<tr><td colspan="4" class="empty-state">Enter a valid cost above to generate the table.</td></tr>';
+      errorEl.textContent = '';
+
+      // Validate
+      if (!document.getElementById('costInput').value || isNaN(cost) || cost <= 0) {
+        tbody.innerHTML = '<tr><td colspan="4" class="empty-state">Enter a valid cost to generate the table.</td></tr>';
+        return;
+      }
+      if (isNaN(minMargin) || isNaN(maxMargin) || isNaN(increment)) return;
+      if (minMargin <= 0 || maxMargin <= 0 || increment <= 0) {
+        errorEl.textContent = 'All margin values must be greater than 0.';
+        return;
+      }
+      if (minMargin >= 100 || maxMargin >= 100) {
+        errorEl.textContent = 'Margins must be less than 100%.';
+        return;
+      }
+      if (minMargin >= maxMargin) {
+        errorEl.textContent = 'Min margin must be less than max margin.';
+        return;
+      }
+      if (increment > (maxMargin - minMargin)) {
+        errorEl.textContent = 'Increment is larger than the margin range.';
         return;
       }
 
-      const margins = [50, 55, 60, 65, 70, 75, 80];
-      const rows = margins.map(margin => {
-        // price = cost / (1 - margin/100)
+      // Build margin steps
+      const margins = [];
+      for (let m = minMargin; m <= maxMargin + 0.0001; m += increment) {
+        margins.push(Math.round(m * 100) / 100);
+      }
+
+      // Tier thresholds based on the range
+      const range    = maxMargin - minMargin;
+      const lowCut   = minMargin + range / 3;
+      const highCut  = minMargin + (2 * range) / 3;
+
+      tbody.innerHTML = margins.map(margin => {
         const price  = cost / (1 - margin / 100);
         const profit = price - cost;
 
         let tier, badgeClass;
-        if (margin <= 60)      { tier = 'Entry';    badgeClass = 'badge-low';  }
-        else if (margin <= 70) { tier = 'Standard'; badgeClass = 'badge-mid';  }
-        else                   { tier = 'Premium';  badgeClass = 'badge-high'; }
+        if (margin <= lowCut)       { tier = 'Entry';    badgeClass = 'badge-low';  }
+        else if (margin <= highCut) { tier = 'Standard'; badgeClass = 'badge-mid';  }
+        else                        { tier = 'Premium';  badgeClass = 'badge-high'; }
 
-        return `
-          <tr>
-            <td class="margin-col">${margin}%</td>
-            <td class="price-col">$${price.toFixed(2)}</td>
-            <td class="profit-col">$${profit.toFixed(2)}</td>
-            <td><span class="badge ${badgeClass}">${tier}</span></td>
-          </tr>`;
-      });
-
-      tbody.innerHTML = rows.join('');
+        return `<tr>
+          <td class="margin-col">${margin}%</td>
+          <td class="price-col">$${price.toFixed(2)}</td>
+          <td class="profit-col">$${profit.toFixed(2)}</td>
+          <td><span class="badge ${badgeClass}">${tier}</span></td>
+        </tr>`;
+      }).join('');
     }
+
+    // Run on load with defaults
+    buildTable();
   </script>
 </body>
 </html>
