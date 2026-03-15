@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Babar Khalid Khan</title>
+<title>Babar Khan, PhD — Investment Leader</title>
+<meta name="description" content="Babar Khan is an investment leader with scientific depth and sovereign-capital experience across deep tech, biotech, and applied AI.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  /* Prevent flash of wrong theme */
   html { visibility: hidden; }
 </style>
 <script>
@@ -48,9 +48,6 @@
   nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 16px 56px; background: var(--nav-bg); backdrop-filter: blur(12px); box-shadow: 0 1px 0 var(--line); transition: background 0.4s ease, box-shadow 0.4s ease; }
   .nav-logo { font-family: 'Playfair Display', serif; font-weight: 400; font-size: 18px; color: var(--navy); text-decoration: none; letter-spacing: 0.01em; }
   .nav-right { display: flex; gap: 8px; align-items: center; }
-  .nav-links { display: flex; gap: 28px; align-items: center; margin-right: 24px; }
-  .nav-link { font-size: 13px; letter-spacing: 0.06em; color: var(--navy-mid); text-decoration: none; font-weight: 500; transition: color 0.2s; }
-  .nav-link:hover { color: var(--teal); }
   .nav-icon { width: 42px; height: 42px; display: flex; align-items: center; justify-content: center; border-radius: 10px; color: var(--ink-soft); text-decoration: none; transition: all 0.2s; background: var(--bg-alt); }
   .nav-icon:hover { background: var(--teal-light); color: var(--teal); }
   .nav-icon svg { width: 20px; height: 20px; fill: currentColor; }
@@ -61,24 +58,20 @@
   .eyebrow { font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--teal); margin-bottom: 28px; opacity: 0; animation: up 0.6s ease forwards 0.15s; font-weight: 600; }
   .hero-name { font-family: 'Playfair Display', serif; font-weight: 700; font-size: clamp(48px, 5.5vw, 80px); line-height: 1.05; opacity: 0; animation: up 0.6s ease forwards 0.3s; color: var(--navy); }
   .hero-name em { font-style: italic; color: var(--teal); font-weight: 400; }
-  .hero-bio { margin-top: 32px; max-width: 420px; opacity: 0; animation: up 0.6s ease forwards 0.5s; }
+  .hero-positioning { margin-top: 28px; font-size: clamp(18px, 1.8vw, 24px); line-height: 1.4; font-weight: 500; color: var(--navy); max-width: 460px; opacity: 0; animation: up 0.6s ease forwards 0.45s; }
+  .hero-bio { margin-top: 18px; max-width: 440px; opacity: 0; animation: up 0.6s ease forwards 0.5s; }
   .hero-bio p { font-size: 16px; color: var(--navy-mid); line-height: 1.8; font-weight: 300; }
-  .hero-badges { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; opacity: 0; animation: up 0.6s ease forwards 0.55s; }
-  .hero-badge { font-size: 11px; letter-spacing: 0.08em; color: var(--teal); border: 1px solid var(--line-teal); padding: 5px 12px; border-radius: 20px; font-weight: 500; background: var(--teal-light); }
-  .stats { display: flex; flex-wrap: wrap; gap: 24px 40px; margin-top: 52px; padding-top: 36px; border-top: 1px solid var(--line); opacity: 0; animation: up 0.6s ease forwards 0.65s; }
+  .stats { display: flex; flex-wrap: wrap; gap: 24px 40px; margin-top: 40px; padding-top: 32px; border-top: 1px solid var(--line); opacity: 0; animation: up 0.6s ease forwards 0.58s; }
   .stat-n { font-family: 'Playfair Display', serif; font-size: 48px; font-weight: 700; color: var(--navy); line-height: 1; display: block; }
   .stat-n span { color: var(--teal); }
-  .stat-l { display: block; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-soft); margin-top: 6px; font-weight: 500; }
+  .stat-l { display: block; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-soft); margin-top: 6px; font-weight: 500; max-width: 120px; line-height: 1.4; }
+  .hero-credential { margin-top: 20px; font-size: 12px; font-weight: 600; color: var(--ink-soft); letter-spacing: 0.08em; opacity: 0; animation: up 0.6s ease forwards 0.65s; }
 
   /* HERO RIGHT */
   .hero-right { position: relative; overflow: hidden; background: var(--navy); }
   .hero-photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 15%; opacity: 0.75; filter: contrast(1.05); animation: fadeIn 1.2s ease forwards 0.5s; }
   .hero-right::after { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(11,29,58,0.4) 0%, transparent 60%, rgba(27,140,110,0.15) 100%); pointer-events: none; }
   .hero-right::before { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 280px; background: linear-gradient(to top, var(--navy), transparent); z-index: 2; pointer-events: none; }
-  .hero-photo-badge { position: absolute; bottom: 48px; left: 40px; z-index: 5; }
-  .hero-photo-badge-inner { background: rgba(255,255,255,0.95); backdrop-filter: blur(8px); padding: 16px 24px; border-left: 3px solid var(--teal); }
-  .hpb-title { font-size: 13px; font-weight: 600; color: var(--navy); }
-  .hpb-sub { font-size: 12px; color: var(--ink-soft); margin-top: 2px; }
 
   /* TICKER */
   .ticker-wrap { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--bg-alt); padding: 14px 0; overflow: hidden; white-space: nowrap; }
@@ -87,50 +80,49 @@
   .ticker-item .sep { width: 3px; height: 3px; border-radius: 50%; background: var(--teal); flex-shrink: 0; }
   .ticker-item.hi { color: var(--teal); }
 
-  /* SECTION LABEL */
+  /* SECTION FRAMEWORK */
   .section-label-row { max-width: 1160px; margin: 0 auto; padding: 72px 64px 32px; }
   .section-label { font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--teal); display: flex; align-items: center; gap: 16px; font-weight: 600; }
   .section-label::after { content: ''; flex: 1; height: 1px; background: var(--line); }
-
-  /* THESIS */
-  .thesis-lead { max-width: 1160px; margin: 0 auto; padding: 0 64px; }
-  .thesis-lead-card { background: var(--navy); padding: 52px 56px; border-radius: 6px; }
-  .thesis-lead-text { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 400; color: white; line-height: 1.6; max-width: 820px; }
-  .thesis-lead-text em { color: #4DB896; font-style: normal; font-weight: 700; }
-
-  .thesis-grid { max-width: 1160px; margin: 24px auto 0; padding: 0 64px; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
-  .thesis-card { background: var(--white); padding: 40px 36px; border-radius: 6px; border: 1px solid var(--line); transition: box-shadow 0.3s, transform 0.3s; display: flex; flex-direction: column; }
-  .thesis-card:hover { box-shadow: 0 8px 32px rgba(11,29,58,0.08); transform: translateY(-3px); }
-  .thesis-card-num { font-family: 'Playfair Display', serif; font-size: 13px; font-weight: 700; color: var(--teal); letter-spacing: 0.12em; margin-bottom: 20px; display: block; }
-  .thesis-title { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: var(--navy); line-height: 1.25; margin-bottom: 16px; }
-  .thesis-desc { font-size: 15px; color: var(--navy-mid); line-height: 1.8; font-weight: 300; flex: 1; }
-
-  .thesis-card-bullets { list-style: none; margin-top: 20px; display: flex; flex-direction: column; gap: 10px; }
-  .thesis-card-bullets li { font-size: 14px; color: var(--ink-soft); font-weight: 500; display: flex; align-items: baseline; gap: 10px; }
-  .thesis-card-bullets li::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: var(--teal); flex-shrink: 0; margin-top: 2px; }
-  .thesis-meta-inner { background: var(--navy); padding: 32px 40px; border-radius: 6px; display: flex; align-items: center; gap: 0; flex-wrap: wrap; }
-  .thesis-meta-item { display: flex; flex-direction: column; gap: 5px; padding: 0 40px; border-right: 1px solid rgba(255,255,255,0.12); flex: 1; min-width: 160px; }
-  .thesis-meta-item:first-child { padding-left: 0; }
-  .thesis-meta-item:last-of-type { border-right: none; }
-  .thesis-meta-label { font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase; color: rgba(255,255,255,0.45); font-weight: 600; }
-  .thesis-meta-value { font-size: 15px; color: white; font-weight: 500; line-height: 1.4; }
-  .thesis-cta { display: inline-flex; align-items: center; gap: 10px; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--navy); text-decoration: none; font-weight: 700; background: #4DB896; padding: 14px 28px; border-radius: 4px; margin-left: auto; white-space: nowrap; transition: background 0.2s, transform 0.2s; flex-shrink: 0; }
-  .thesis-cta:hover { background: white; transform: translateY(-1px); }
+  .section-title { max-width: 1160px; margin: 0 auto; padding: 0 64px; }
+  .section-title h2 { font-family: 'Playfair Display', serif; font-size: clamp(30px, 3.5vw, 46px); font-weight: 700; line-height: 1.15; color: var(--navy); max-width: 760px; }
+  .section-lede { max-width: 1160px; margin: 16px auto 0; padding: 0 64px; }
+  .section-lede p { font-size: 16px; color: var(--navy-mid); line-height: 1.8; font-weight: 300; max-width: 720px; }
 
   /* ROLES */
   .roles-row { max-width: 1160px; margin: 0 auto; padding: 0 64px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-  .band-card { background: var(--bg-alt); padding: 40px 36px; border-radius: 4px; border: 1px solid var(--line); transition: box-shadow 0.3s; }
+  .band-card { background: var(--bg-alt); padding: 40px 36px; border-radius: 6px; border: 1px solid var(--line); transition: box-shadow 0.3s; }
   .band-card:hover { box-shadow: 0 4px 20px rgba(11,29,58,0.07); }
   .band-label { font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--teal); margin-bottom: 12px; display: block; font-weight: 600; }
   .band-title { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 700; color: var(--navy); line-height: 1.35; margin-bottom: 8px; }
   .band-org { font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 16px; display: block; font-weight: 500; }
   .band-sub { font-size: 15px; color: var(--navy-mid); line-height: 1.75; font-weight: 300; }
 
-  /* BIO */
-  .bio-row { max-width: 1160px; margin: 0 auto; padding: 0 64px; }
-  .bio-card { background: var(--bg-alt); padding: 48px 40px; border-radius: 4px; border: 1px solid var(--line); }
-  .bio-text { font-size: 16px; color: var(--navy-mid); line-height: 1.9; font-weight: 300; }
-  .bio-text + .bio-text { margin-top: 18px; }
+  /* FOCUS AREAS */
+  .focus-grid { max-width: 1160px; margin: 28px auto 0; padding: 0 64px; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+  .focus-card { background: var(--white); padding: 40px 36px; border-radius: 6px; border: 1px solid var(--line); transition: box-shadow 0.3s, transform 0.3s; display: flex; flex-direction: column; }
+  .focus-card:hover { box-shadow: 0 8px 32px rgba(11,29,58,0.08); transform: translateY(-3px); }
+  .focus-card-num { font-family: 'Playfair Display', serif; font-size: 13px; font-weight: 700; color: var(--teal); letter-spacing: 0.12em; margin-bottom: 20px; display: block; }
+  .focus-card h3 { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; color: var(--navy); line-height: 1.25; margin-bottom: 16px; }
+  .focus-card p { font-size: 15px; color: var(--navy-mid); line-height: 1.8; font-weight: 300; flex: 1; }
+
+  /* DIFFERENTIATION */
+  .diff-grid { max-width: 1160px; margin: 28px auto 0; padding: 0 64px; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+  .diff-card { background: var(--bg-alt); padding: 36px 32px; border-radius: 6px; border: 1px solid var(--line); transition: box-shadow 0.3s, transform 0.3s; }
+  .diff-card:hover { box-shadow: 0 6px 24px rgba(11,29,58,0.07); transform: translateY(-2px); }
+  .diff-card h3 { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: var(--navy); line-height: 1.3; margin-bottom: 14px; }
+  .diff-card p { font-size: 15px; color: var(--navy-mid); line-height: 1.8; font-weight: 300; }
+
+  /* INVESTMENT LEADERSHIP — PROCESS STEPS */
+  .il-process { max-width: 1160px; margin: 36px auto 0; padding: 0 64px; }
+  .il-process-wrap { position: relative; }
+  .il-process-line { position: absolute; top: 22px; left: 12%; right: 12%; height: 2px; background: var(--line); z-index: 1; }
+  .il-process-line::after { content: ''; position: absolute; right: -2px; top: -4px; width: 0; height: 0; border-top: 5px solid transparent; border-bottom: 5px solid transparent; border-left: 8px solid var(--teal); }
+  .il-process-inner { display: flex; align-items: flex-start; position: relative; z-index: 2; }
+  .il-step { flex: 1; text-align: center; padding: 0 16px; }
+  .il-step-num { width: 44px; height: 44px; border-radius: 50%; background: var(--teal); color: white; font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; margin-bottom: 20px; }
+  .il-step-title { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; color: var(--navy); line-height: 1.3; margin-bottom: 6px; }
+  .il-step-subtitle { font-size: 13px; color: var(--ink-soft); font-weight: 500; letter-spacing: 0.02em; }
 
   /* DIVIDER */
   .divider { max-width: 1160px; margin: 80px auto 0; padding: 0 64px; }
@@ -138,16 +130,16 @@
 
   /* CONTACT */
   .contact-section { background: var(--navy); margin-top: 80px; }
-  .contact-wrap { max-width: 1160px; margin: 0 auto; padding: 96px 64px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 52px; }
+  .contact-wrap { max-width: 1160px; margin: 0 auto; padding: 96px 64px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 24px; }
   .contact-hed { font-family: 'Playfair Display', serif; font-size: clamp(36px, 4.5vw, 60px); font-weight: 400; line-height: 1.2; color: white; }
   .contact-hed em { color: #4DB896; font-style: italic; }
-  .contact-icons { display: flex; gap: 40px; align-items: center; justify-content: center; }
-  .contact-icon-link { display: flex; flex-direction: column; align-items: center; gap: 10px; text-decoration: none; transition: all 0.25s; }
-  .contact-icon-circle { width: 56px; height: 56px; border: 1px solid rgba(255,255,255,0.15); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.5); transition: all 0.25s; }
-  .contact-icon-circle svg { width: 22px; height: 22px; }
-  .contact-icon-link:hover .contact-icon-circle { border-color: #4DB896; color: #4DB896; background: rgba(27,140,110,0.15); }
-  .contact-icon-label { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.4); font-weight: 500; transition: color 0.25s; }
-  .contact-icon-link:hover .contact-icon-label { color: #4DB896; }
+  .contact-lede { font-size: 16px; color: rgba(255,255,255,0.55); line-height: 1.8; max-width: 580px; font-weight: 300; }
+  .contact-actions { display: flex; gap: 14px; margin-top: 20px; }
+  .contact-btn { display: inline-flex; align-items: center; justify-content: center; height: 52px; padding: 0 28px; border-radius: 6px; text-decoration: none; font-size: 14px; font-weight: 600; letter-spacing: 0.04em; transition: all 0.25s; }
+  .contact-btn.primary { background: #4DB896; color: var(--navy); }
+  .contact-btn.primary:hover { background: white; transform: translateY(-1px); }
+  .contact-btn.secondary { background: transparent; color: rgba(255,255,255,0.7); border: 1px solid rgba(255,255,255,0.15); }
+  .contact-btn.secondary:hover { border-color: #4DB896; color: #4DB896; transform: translateY(-1px); }
 
   footer { background: var(--navy); border-top: 1px solid rgba(255,255,255,0.08); padding: 24px 56px; display: flex; justify-content: space-between; align-items: center; font-size: 14px; color: rgba(255,255,255,0.35); }
   .footer-r { font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; font-weight: 500; }
@@ -161,36 +153,28 @@
   [data-theme="dark"] .theme-toggle .icon-sun { opacity: 1; transform: rotate(0) scale(1); }
   [data-theme="dark"] .theme-toggle .icon-moon { opacity: 0; transform: rotate(90deg) scale(0.5); }
 
-  /* DARK MODE OVERRIDES for hardcoded colors */
+  /* DARK MODE OVERRIDES */
   [data-theme="dark"] .hero-right { background: #161B22; }
   [data-theme="dark"] .hero-right::after { background: linear-gradient(135deg, rgba(13,17,23,0.5) 0%, transparent 60%, rgba(63,182,139,0.1) 100%); }
   [data-theme="dark"] .hero-right::before { background: linear-gradient(to top, #161B22, transparent); }
   [data-theme="dark"] .hero-photo { opacity: 0.85; }
   [data-theme="dark"] .ticker-wrap { background: var(--bg-alt); border-color: var(--line); }
-  [data-theme="dark"] .thesis-lead-card { background: #161B22; border: 1px solid var(--line); }
-  [data-theme="dark"] .thesis-lead-text { color: var(--navy); }
-  [data-theme="dark"] .thesis-lead-text em { color: var(--teal); }
-  [data-theme="dark"] .thesis-card { background: var(--bg-alt); }
-  [data-theme="dark"] .thesis-meta-inner { background: #161B22; border: 1px solid var(--line); }
-  [data-theme="dark"] .thesis-meta-label { color: var(--ink-soft); }
-  [data-theme="dark"] .thesis-meta-value { color: var(--navy); }
-  [data-theme="dark"] .thesis-cta { color: #0D1117; background: var(--teal); }
-  [data-theme="dark"] .thesis-cta:hover { background: #E6EDF3; color: #0D1117; }
+  [data-theme="dark"] .focus-card { background: var(--bg-alt); }
+  [data-theme="dark"] .diff-card { background: var(--bg-alt); }
+  [data-theme="dark"] .il-step-num { background: var(--teal); }
   [data-theme="dark"] .contact-section { background: #161B22; border-top: 1px solid var(--line); }
   [data-theme="dark"] .contact-hed { color: var(--navy); }
   [data-theme="dark"] .contact-hed em { color: var(--teal); }
-  [data-theme="dark"] .contact-icon-circle { border-color: var(--line); color: var(--ink-soft); }
-  [data-theme="dark"] .contact-icon-link:hover .contact-icon-circle { border-color: var(--teal); color: var(--teal); background: var(--teal-light); }
-  [data-theme="dark"] .contact-icon-label { color: var(--ink-soft); }
-  [data-theme="dark"] .contact-icon-link:hover .contact-icon-label { color: var(--teal); }
+  [data-theme="dark"] .contact-lede { color: var(--ink-soft); }
+  [data-theme="dark"] .contact-btn.primary { color: #0D1117; background: var(--teal); }
+  [data-theme="dark"] .contact-btn.primary:hover { background: #E6EDF3; color: #0D1117; }
+  [data-theme="dark"] .contact-btn.secondary { color: var(--ink-soft); border-color: var(--line); }
+  [data-theme="dark"] .contact-btn.secondary:hover { border-color: var(--teal); color: var(--teal); }
   [data-theme="dark"] footer { background: #0D1117; border-top: 1px solid var(--line); color: var(--ink-soft); }
-  [data-theme="dark"] .band-card { background: var(--bg-alt); transition: background 0.4s, box-shadow 0.3s; }
-  [data-theme="dark"] .bio-card { background: var(--bg-alt); transition: background 0.4s; }
-  [data-theme="dark"] .bio-text strong { color: var(--navy); }
+  [data-theme="dark"] .band-card { background: var(--bg-alt); }
   [data-theme="dark"] .stat-n span { color: var(--teal); }
 
-  /* Smooth transitions for themed elements */
-  .band-card, .bio-card, .thesis-card, .thesis-lead-card, .thesis-meta-inner, .ticker-wrap, .contact-section, footer, nav, .nav-icon, .hero-right { transition: background 0.4s ease, border-color 0.4s ease, box-shadow 0.3s ease; }
+  .band-card, .focus-card, .diff-card, .ticker-wrap, .contact-section, footer, nav, .nav-icon, .hero-right { transition: background 0.4s ease, border-color 0.4s ease, box-shadow 0.3s ease; }
 
   @keyframes up { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
   @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
@@ -198,29 +182,32 @@
   .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
   .reveal.on { opacity: 1; transform: none; }
 
-  @media (max-width: 820px) {
+  @media (max-width: 900px) {
     nav { padding: 14px 20px; }
-    .hero { grid-template-columns: 1fr; } .hero-right { height: 70vw; } .hero-left { padding: 100px 24px 56px; }
-    .section-label-row, .thesis-lead, .thesis-meta-row, .bio-row, .roles-row, .divider { padding: 0 24px; }
+    .hero { grid-template-columns: 1fr; }
+    .hero-right { height: 70vw; }
+    .hero-left { padding: 100px 24px 56px; }
+    .section-label-row, .section-title, .section-lede, .focus-grid, .diff-grid, .il-process, .roles-row, .divider { padding-left: 24px; padding-right: 24px; }
     .section-label-row { padding-top: 48px; padding-bottom: 24px; }
-    .thesis-grid, .roles-row { grid-template-columns: 1fr; padding: 0 24px; }
-    .thesis-meta-inner { flex-direction: column; gap: 24px; }
-    .thesis-meta-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); padding: 0 0 20px; }
-    .thesis-meta-item:last-of-type { border-bottom: none; padding-bottom: 0; }
-    .thesis-cta { margin-left: 0; width: 100%; justify-content: center; }
+    .focus-grid, .diff-grid, .roles-row { grid-template-columns: 1fr; }
+    .il-process-inner { flex-direction: column; align-items: center; }
+    .il-process-line { display: none; }
+    .il-step { padding: 24px 16px; }
     .contact-wrap { padding: 64px 24px; }
+    .contact-actions { flex-direction: column; align-items: center; }
     footer { padding: 20px 24px; flex-direction: column; gap: 8px; text-align: center; }
+  }
+  @media (max-width: 600px) {
+    .stats { gap: 20px 28px; }
+    .stat-n { font-size: 36px; }
   }
 </style>
 </head>
 <body>
 
 <nav>
-  <a class="nav-logo" href="#">Babar Khalid Khan</a>
+  <a class="nav-logo" href="#">Babar Khan</a>
   <div class="nav-right">
-    <div class="nav-links">
-      <a class="nav-link" href="#thesis">Investment Thesis</a>
-    </div>
     <a class="nav-icon" href="https://linkedin.com/in/babark" target="_blank" title="LinkedIn">
       <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
     </a>
@@ -237,22 +224,25 @@
   </div>
 </nav>
 
+<!-- HERO -->
 <section class="hero">
   <div class="hero-left">
-    <h1 class="hero-name">Babar<br><em>Khalid Khan</em><br>PhD</h1>
+    <div class="eyebrow">Senior Investment Leader</div>
+    <h1 class="hero-name">Babar<br><em>Khan,</em> PhD</h1>
+    <p class="hero-positioning">Investment leader with scientific depth and sovereign-capital experience across deep tech, biotech, and applied AI</p>
     <div class="hero-bio">
-      <p>Investor-Scientist bridging technology expertise with venture capital. Founder, Operator at AI Data Co. Inducted into MIT Innovator Under 35 in 2019. Competitive eSports player since 2008.</p>
+      <p>I have led transactions across origination, diligence, execution, and portfolio management. I currently serve as Head, Life Science Investments at NEOM Investment Fund and Co-Founder of AI Astrolabe.</p>
     </div>
     <div class="stats">
-      <div><span class="stat-n" data-target="150" data-prefix="$" data-suffix="M">$0M</span><span class="stat-l">Deployed</span></div>
-      <div><span class="stat-n" data-target="20" data-suffix="+">0+</span><span class="stat-l">Years Exp.</span></div>
-      <div><span class="stat-n" data-target="4">0</span><span class="stat-l">Board Roles</span></div>
-      <div><span class="stat-n" data-target="5">0</span><span class="stat-l">Publications</span></div>
+      <div><span class="stat-n" data-target="150" data-prefix="$" data-suffix="M+">$0M+</span><span class="stat-l">Transactions Led</span></div>
+      <div><span class="stat-n" data-target="20" data-suffix="+">0+</span><span class="stat-l">Years Across Science & Investing</span></div>
+      <div><span class="stat-n" data-target="4">0</span><span class="stat-l">Board / Governance Roles</span></div>
       <div><span class="stat-n" data-target="3">0</span><span class="stat-l">US Patents</span></div>
     </div>
+    <p class="hero-credential">MIT Innovators Under 35 (2019)</p>
   </div>
   <div class="hero-right">
-    <img class="hero-photo" id="heroPhoto" src="photo-profile_white.JPG" data-light="photo-profile_white.JPG" data-dark="photo-profile-dark.jpg" alt="Babar Khalid Khan">
+    <img class="hero-photo" id="heroPhoto" src="photo-profile_white.JPG" data-light="photo-profile_white.JPG" data-dark="photo-profile-dark.jpg" alt="Babar Khan">
   </div>
 </section>
 
@@ -273,105 +263,111 @@
   </div>
 </div>
 
-<div id="about">
+<!-- CURRENT ROLES -->
+<div id="current-roles">
   <div class="section-label-row reveal"><p class="section-label">Current Roles</p></div>
+  <div class="section-title reveal"><h2>Operating across institutional investing and frontier AI</h2></div>
 
-  <div class="roles-row reveal">
+  <div class="roles-row reveal" style="margin-top: 28px;">
     <div class="band-card">
-      <span class="band-label">Since 2019</span>
-      <p class="band-title">Head, Technology Investments</p>
+      <span class="band-label">Current Role</span>
+      <p class="band-title">Head, Life Science Investments</p>
       <span class="band-org">NEOM Investment Fund · Riyadh</span>
-      <p class="band-sub">Invest and manage portfolio across Biotech, Healthcare, Agri-food, and Blockchain. Special focus on advanced biomanufacturing.</p>
+      <p class="band-sub">Lead and manage investments across life sciences and related technology platforms, with experience spanning origination, diligence, execution, and portfolio management.</p>
     </div>
     <div class="band-card">
-      <span class="band-label">Since 2024</span>
+      <span class="band-label">Current Role</span>
       <p class="band-title">Co-Founder</p>
       <span class="band-org">AI Astrolabe · USA</span>
-      <p class="band-sub">Operating role; we deliver high-quality multimodal curated data to power frontier AI models and agents with specific expertise in low-resource languages.</p>
-    </div>
-  </div>
-
-  <div class="divider"><div class="divider-line"></div></div>
-
-  <div class="section-label-row reveal" id="thesis" style="padding-top:72px"><p class="section-label">Investment Thesis</p></div>
-
-  <div class="thesis-lead reveal">
-    <div class="thesis-lead-card">
-      <p class="thesis-lead-text">The most consequential companies of the next decade will be built at the intersection of <em>deep technology</em> and <em>applied AI</em> seeking real-world outcomes. I invest where these forces meet — backing founders who translate hard science into scalable platforms.</p>
-    </div>
-  </div>
-
-  <div class="thesis-grid reveal" style="grid-template-columns: 1fr 1fr;">
-    <div class="thesis-card">
-      <span class="thesis-card-num">01</span>
-      <h3 class="thesis-title">Biotech</h3>
-      <p class="thesis-desc">Technology platforms that improve human health or build resilient production systems.</p>
-      <ul class="thesis-card-bullets">
-        <li>Healthcare & AI-enabled tools</li>
-        <li>Biomanufacturing & industrial biology</li>
-        <li>Platform therapeutics</li>
-      </ul>
-    </div>
-    <div class="thesis-card">
-      <span class="thesis-card-num">02</span>
-      <h3 class="thesis-title">AI Infrastructure</h3>
-      <p class="thesis-desc">The enabling layer that makes AI work beyond English-speaking markets.</p>
-      <ul class="thesis-card-bullets">
-        <li>Post-training data as the next bottleneck after energy and compute</li>
-        <li>Low-resource language datasets</li>
-        <li>Safety and alignment</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="thesis-meta-row reveal">
-    <div class="thesis-meta-inner">
-      <div class="thesis-meta-item">
-        <span class="thesis-meta-label">Stage</span>
-        <span class="thesis-meta-value">Series A & B · Selectively Seed (personal)</span>
-      </div>
-      <div class="thesis-meta-item">
-        <span class="thesis-meta-label">Check Size</span>
-        <span class="thesis-meta-value">$15M – $30M (institutional)</span>
-      </div>
-      <div class="thesis-meta-item">
-        <span class="thesis-meta-label">Geography</span>
-        <span class="thesis-meta-value">Global with GCC expansion appetite</span>
-      </div>
-      <a href="thesis.html" class="thesis-cta">Read Full Thesis →</a>
-    </div>
-  </div>
-
-  <div class="divider" style="margin-top:80px"><div class="divider-line"></div></div>
-  <div class="section-label-row reveal" style="padding-top:72px"><p class="section-label">Biography</p></div>
-
-  <div class="bio-row reveal" style="margin-bottom:80px">
-    <div class="bio-card">
-      <p class="bio-text">Babar Khan, Ph.D. is a <strong>scientist, entrepreneur, and business leader</strong> with over <strong>20 years of experience</strong> bridging academia and industry across life sciences, technology, and AI. The second of eight children in a first-generation immigrant family, Babar grew up in upstate New York, attended public schools, and built a career defined by a combination of rigorous science, venture capital, and a commitment to using both for impact. Named to <strong>MIT Technology Review's "Innovators Under 35" (2019)</strong>, he has built a career at the intersection of cutting-edge research and real-world impact — from the lab bench to global investment and AI ventures.</p>
-      <p class="bio-text">Babar leads disruptive technology investments at the <strong>NEOM Investment Fund</strong> and is co-founder of <strong>AI Astrolabe</strong>, a venture focused on bridging the high-quality multimodal data gap in frontier AI development. His industry roots trace back to <strong>Genzyme Genetics</strong> and <strong>GE Global Research</strong>, before he joined Contrafect, a NYC biotech tackling multi-drug resistant bacteria, as one of the first scientists hired.</p>
-      <p class="bio-text">A lifelong educator and community builder, Babar delivers leadership, entrepreneurship, and project management workshops as President of <strong>KAUST's Alumni Network</strong>. He lives in Riyadh with his wife and five children, and is deeply committed to <strong>planetary health</strong> and building a better world for the next generation.</p>
+      <p class="band-sub">Building a company focused on high-quality multimodal data and low-resource language infrastructure for frontier AI systems and agents.</p>
     </div>
   </div>
 </div>
 
+<!-- FOCUS AREAS + DIFFERENTIATION (COMBINED) -->
+<div id="focus-areas">
+  <div class="section-label-row reveal"><p class="section-label">Focus Areas</p></div>
+
+  <div class="focus-grid reveal">
+    <div class="focus-card">
+      <span class="focus-card-num">01</span>
+      <h3>Deep Tech</h3>
+      <p>Technologies with hard technical barriers, strategic relevance, and durable long-term value creation potential.</p>
+    </div>
+    <div class="focus-card">
+      <span class="focus-card-num">02</span>
+      <h3>Biotech &amp; Healthcare</h3>
+      <p>Platforms that improve human health, expand biological capability, or strengthen resilient production systems.</p>
+    </div>
+    <div class="focus-card">
+      <span class="focus-card-num">03</span>
+      <h3>Applied AI</h3>
+      <p>AI infrastructure, data, tooling, and applied systems that enable deployment beyond narrow English-first use cases.</p>
+    </div>
+  </div>
+
+  <div class="section-title reveal" style="margin-top: 52px;"><h2>Differentiated profile at the intersection of capital and technology</h2></div>
+
+  <div class="diff-grid reveal">
+    <div class="diff-card">
+      <h3>Scientific depth</h3>
+      <p>I am comfortable evaluating technically complex businesses and engaging beyond surface-level narrative.</p>
+    </div>
+    <div class="diff-card">
+      <h3>Investment execution</h3>
+      <p>I have led transactions through origination, diligence, execution, and portfolio management.</p>
+    </div>
+    <div class="diff-card">
+      <h3>Cross-border context</h3>
+      <p>My experience across the US and GCC informs how I think about capital, strategic fit, market entry, and long-term institutional value creation.</p>
+    </div>
+  </div>
+</div>
+
+<!-- INVESTMENT LEADERSHIP -->
+<div id="investment-leadership">
+  <div class="section-label-row reveal"><p class="section-label">Investment Leadership</p></div>
+  <div class="section-title reveal"><h2>I've led across the entire investment process, from opportunity to outcome</h2></div>
+  <div class="section-lede reveal"><p>My role has not been limited to sector coverage or investment themes. I have led transactions through the full investment cycle and remained involved through portfolio development after closing.</p></div>
+
+  <div class="il-process reveal">
+    <div class="il-process-wrap">
+      <div class="il-process-line"></div>
+      <div class="il-process-inner">
+        <div class="il-step">
+          <div class="il-step-num">1</div>
+          <div class="il-step-title">Origination</div>
+          <div class="il-step-subtitle">Opportunity Development</div>
+        </div>
+        <div class="il-step">
+          <div class="il-step-num">2</div>
+          <div class="il-step-title">Diligence</div>
+          <div class="il-step-subtitle">Technical and Financial Assessment</div>
+        </div>
+        <div class="il-step">
+          <div class="il-step-num">3</div>
+          <div class="il-step-title">Execution</div>
+          <div class="il-step-subtitle">Structuring and Closing</div>
+        </div>
+        <div class="il-step">
+          <div class="il-step-num">4</div>
+          <div class="il-step-title">Portfolio Management</div>
+          <div class="il-step-subtitle">Active Value Creation</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT -->
 <section class="contact-section" id="contact">
   <div class="contact-wrap">
     <div class="reveal">
-      <h2 class="contact-hed">Let's connect on something<br><em>meaningful.</em></h2>
+      <h2 class="contact-hed">Always interested in<br><em>thoughtful conversations</em></h2>
     </div>
-    <div class="contact-icons reveal">
-      <a class="contact-icon-link" href="https://linkedin.com/in/babark" target="_blank">
-        <div class="contact-icon-circle"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></div>
-        <span class="contact-icon-label">LinkedIn</span>
-      </a>
-      <a class="contact-icon-link" href="https://x.com/babarkkhan" target="_blank">
-        <div class="contact-icon-circle"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></div>
-        <span class="contact-icon-label">X</span>
-      </a>
-      <a class="contact-icon-link" href="https://app.reclaim.ai/m/bkhan" target="_blank">
-        <div class="contact-icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20a2 2 0 002 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11zm0-13H5V6h14v1zM7 11h5v5H7z"/></svg></div>
-        <span class="contact-icon-label">Sync</span>
-      </a>
+    <div class="contact-actions reveal">
+      <a class="contact-btn primary" href="https://linkedin.com/in/babark" target="_blank" rel="noopener">Connect on LinkedIn</a>
+      <a class="contact-btn secondary" href="https://app.reclaim.ai/m/bkhan/sync" target="_blank" rel="noopener">Schedule time</a>
     </div>
   </div>
 </section>
@@ -382,13 +378,11 @@
 </footer>
 
 <script>
-  // Scroll reveal
   const io = new IntersectionObserver(entries => {
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); } });
   }, { threshold: 0.08 });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-  // Stat counter — fires after CSS fade-in animation completes (0.65s delay + 0.6s duration + buffer)
   function easeOut(t) { return 1 - Math.pow(1 - t, 3); }
   function animateStat(el) {
     const target = parseInt(el.dataset.target);
@@ -403,13 +397,12 @@
     })(start);
   }
 
-  // Wait for the stats CSS animation to finish before starting counters
   window.addEventListener('load', () => {
     setTimeout(() => {
       document.querySelectorAll('.stat-n[data-target]').forEach(animateStat);
-    }, 1400); // 650ms delay + 600ms animation + 150ms buffer
+    }, 1400);
   });
-  // Theme toggle — persists to localStorage, swaps photo
+
   function applyTheme(theme) {
     document.documentElement.setAttribute('data-theme', theme);
     const photo = document.getElementById('heroPhoto');
@@ -420,10 +413,10 @@
     const current = document.documentElement.getAttribute('data-theme') || 'light';
     applyTheme(current === 'dark' ? 'light' : 'dark');
   }
-  // Init: apply saved theme (or default light)
   (function() {
     const saved = localStorage.getItem('bkk-theme') || 'light';
     if (saved === 'dark') applyTheme('dark');
   })();
-</script></body>
+</script>
+</body>
 </html>
