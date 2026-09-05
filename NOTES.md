@@ -144,19 +144,35 @@ liability that only gets worse with time. The two live third-party sources
 carry the evidence instead: the KAUST Startup of the Week feature and the Arab
 News piece. If Babar ever re-registers the domain, add it then.
 
-### Still out of sync with LinkedIn
+### ContraFect and the board count, settled 5 Sep
 
-- **ContraFect.** The site says he "led the preclinical therapeutic pipeline"
-  and was "first of three scientists to advance a novel antimicrobial into
-  Phase I"; LinkedIn says he "supported the therapeutic pipeline". LinkedIn
-  mentions neither Phase I nor the IPO. Babar has not ruled on this, so the
-  site keeps his own wording, unchanged, on both pages. Do not soften it
-  unilaterally, and if it does change it has to change on the homepage lens and
-  the About page together.
-- **"4 Board Roles"** on the credentials strip. LinkedIn lists three: BlueNalu,
-  Liberation Bioindustries, Paradromics. Unresolved.
-- **Genzyme Genetics** is named on the About page but absent from LinkedIn. The
-  timeline fits, so it looks trimmed rather than wrong.
+**ContraFect.** The old wording ("led the preclinical therapeutic pipeline",
+"first of three scientists to advance a novel antimicrobial into Phase I") did
+not survive a date check: CF-301's Phase 1 began April 2015 and concluded that
+December, while Babar left in January 2014, fifteen months earlier. He did the
+preclinical work that got the molecule there; he did not run the trial.
+
+Babar approved this replacement, now on all three pages:
+
+> At ContraFect Corp, an antimicrobial biotech in New York, he led preclinical
+> development of CF-301 (exebacase), the first bacteriophage lysin the FDA
+> allowed into human clinical trials, working directly with the CEO through a
+> $20M financing period. The company later completed an IPO.
+
+It is both more defensible and stronger. "First lysin the FDA allowed into
+human trials" is checkable; "first of three scientists" invited the question of
+which three. The three places it appears are the About page research section,
+the homepage Scientist lens (first person), and the `insights.html` track
+footnote. **Change all three together.**
+
+**Board count.** "4 Board Roles" is gone. LinkedIn lists three seats and Babar
+confirmed three, so the strip now reads **"Board Seats Across the Portfolio"**,
+with no number, which does not go stale as the portfolio changes.
+
+That longer label made the credentials strip wrap 3/4/1 at desktop, stranding
+one item alone on a third row. Tracking went 0.22em to 0.16em and the column
+gap 32px to 26px, which restores a clean 3/5 with no orphan. The 13px floor is
+untouched. If an item is ever added or reworded, re-check the wrap at 1440.
 
 ### Open, needs Babar
 

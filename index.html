@@ -194,8 +194,11 @@
 
   /* CREDENTIALS STRIP (static; replaced the scrolling marquee) */
   .creds-wrap { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--bg-alt); padding: 20px 24px; }
-  .creds { max-width: 1160px; margin: 0 auto; list-style: none; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 12px 32px; }
-  .creds-item { font-size: 13px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-soft); font-weight: 500; line-height: 1.5; }
+  /* Tracking and column gap are tuned to how these eight items actually wrap.
+     At 0.22em/32px the longest item ("Board Seats Across the Portfolio") pushed
+     the strip to 3/4/1 and stranded a single item alone on the last row. */
+  .creds { max-width: 1160px; margin: 0 auto; list-style: none; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 12px 26px; }
+  .creds-item { font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-soft); font-weight: 500; line-height: 1.5; }
   .creds-item.hi { color: var(--teal); }
 
   /* SECTION FRAMEWORK */
@@ -375,7 +378,7 @@
     <li class="creds-item hi">$150M+ Transactions Led</li>
     <li class="creds-item">20+ Years Across Science &amp; Investing</li>
     <li class="creds-item hi">MIT Tech Review Innovator Under 35 (2019)</li>
-    <li class="creds-item">4 Board Roles</li>
+    <li class="creds-item">Board Seats Across the Portfolio</li>
     <li class="creds-item hi">Multiple US Patents</li>
     <li class="creds-item">35+ Countries Explored</li>
     <li class="creds-item hi">Trilingual</li>
@@ -439,7 +442,7 @@
     </div>
     <div class="lens-item">
       <h3 class="lens-label"><span>2</span>Scientist</h3>
-      <p class="lens-body">PhD in bioscience, and completed my Masters in microbiology while working full-time at Genzyme Genetics as a scientist. Hold multiple US patents, and was the first of 3 scientists to advance a novel antimicrobial to Phase I clinical trials at an NYC biotech that IPO'd. I later co-founded QualSens to commercialize the sensor technology from my doctoral work.</p>
+      <p class="lens-body">PhD in bioscience, and completed my Masters in microbiology while working full-time at Genzyme Genetics as a scientist. Hold multiple US patents. At ContraFect I led preclinical development of CF-301 (exebacase), the first bacteriophage lysin the FDA allowed into human clinical trials, at an NYC biotech that went on to IPO. I later co-founded QualSens to commercialize the sensor technology from my doctoral work.</p>
     </div>
     <div class="lens-item">
       <h3 class="lens-label"><span>3</span>Operator</h3>
