@@ -180,10 +180,19 @@ untouched. If an item is ever added or reworded, re-check the wrap at 1440.
   reads "Head of Technology Investments" at NEOM Investment Fund. Site and
   LinkedIn agree on the title. Only the older scraped listings lag, and those
   will refresh on their own.
-- **Education conflicts, above.** The sharpest open item now.
-- **The KAUST CEMSE profile is misfiled**, sitting under the computer and
-  mathematical sciences division rather than bioscience. Content is otherwise
-  accurate. Worth asking KAUST to move it.
+- ~~Education conflicts.~~ **Resolved 5 Sep** from the diplomas. See the
+  reconciliation table above.
+- ~~ContraFect wording and the board count.~~ **Resolved 5 Sep.** Babar has
+  also updated the ContraFect entry on LinkedIn, so the site and the profile
+  now agree on it.
+- ~~The KAUST CEMSE profile is misfiled.~~ **Dropped 5 Sep, deliberately.**
+  Babar's call: KAUST will not act on it. The page stays in `sameAs` regardless.
+  It is an authoritative institutional page that identifies him correctly, and
+  the wrong division label is a category on their site, not a claim on ours.
+  Do not spend more time on this.
+
+**Nothing on the site is waiting on anyone.** The only remaining task is
+Search Console, which is Babar's to run and needs the site live, which it is.
 
 ### Architecture (deliberately three pages, not six)
 
@@ -202,10 +211,22 @@ for `og:image`; it is the same photograph, so identity stays consistent.
 
 ### Still to do (not code)
 
-Search Console verification under babar@khantet.com, sitemap submission, URL
-inspection, Rich Results test, and the Phase 9 cleanup of external profiles.
-Confirmed by Babar: babarkkhan.com resolves, www redirects to the apex. Still
-worth ticking "Enforce HTTPS" under repo Settings > Pages if it is not already.
+**Search Console only.** Verify under **babar@khantet.com**, the account Babar
+intends to use for the Knowledge Panel claim later, then submit
+`/sitemap.xml`, inspect `/` and `/about/`, request indexing, and run both
+through the Rich Results test.
+
+Confirmed done: babarkkhan.com resolves, www redirects to the apex, Enforce
+HTTPS is ticked.
+
+If Babar verifies with a **URL-prefix** property rather than a Domain property,
+Google issues a `google*.html` token file. It goes in the repo root, committed
+to `main`, and **must never be deleted**: Google re-checks it and removing it
+un-verifies the property. Same rule for a DNS TXT record on a Domain property.
+
+**After verification, leave the site alone for a few weeks.** Entity resolution
+is slow, and changing the `<title>`, the H1 or the `@id` while Google is still
+reconciling the names resets the clock. Nothing on the site is pending.
 
 
 
