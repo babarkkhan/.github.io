@@ -209,15 +209,22 @@ already indexed and renaming it a second time would churn a live URL.
 Khan". **Do not change this URL.** `og-image.jpg` stays the 1200x630 share card
 for `og:image`; it is the same photograph, so identity stays consistent.
 
-### Still to do (not code)
+### Search Console: done 6 Sep 2026
 
-**Search Console only.** Verify under **babar@khantet.com**, the account Babar
-intends to use for the Knowledge Panel claim later, then submit
-`/sitemap.xml`, inspect `/` and `/about/`, request indexing, and run both
-through the Rich Results test.
+Verified under **babar@khantet.com**, the account intended for the Knowledge
+Panel claim, as a **URL-prefix** property on `https://babarkkhan.com/`.
+Domain-property verification was skipped deliberately: www already redirects to
+the apex and HTTPS is enforced, so the extra coverage would only have covered
+URLs that do not resolve, at the cost of a DNS change at the registrar.
+
+`/sitemap.xml` submitted, status Success, 3 pages discovered. `/` and `/about/`
+both inspected and submitted for indexing.
 
 Confirmed done: babarkkhan.com resolves, www redirects to the apex, Enforce
 HTTPS is ticked.
+
+**The whole project is now complete.** Nothing on the site is pending and no
+code change is waiting on anyone.
 
 If Babar verifies with a **URL-prefix** property rather than a Domain property,
 Google issues a `google*.html` token file. It goes in the repo root, committed
