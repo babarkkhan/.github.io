@@ -12,7 +12,8 @@ Knowledge Panel work is live and being crawled.
 ### Homepage
 
 - **Current Roles:** the repeated "Current Role" label is gone from both
-  cards; the section heading already says it. Replaced by a logo slot.
+  cards; the section heading already says it. Each card now opens on its
+  job title.
 - **Logos were considered and dropped (6 Sep).** The supplied NEOM asset is
   dark teal on white: 1.43:1 against the `#161B22` card, invisible with a
   transparent background and a white block without one. It is also a
