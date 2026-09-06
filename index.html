@@ -214,7 +214,7 @@
   .roles-row { max-width: 1160px; margin: 0 auto; padding: 0 64px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
   .band-card { background: var(--bg-alt); padding: 40px 36px; border-radius: 6px; border: 1px solid var(--line); transition: box-shadow 0.3s; }
   .band-card:hover { box-shadow: 0 4px 20px rgba(11,29,58,0.07); }
-  .band-label { font-size: 13px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--teal); margin-bottom: 12px; display: block; font-weight: 600; }
+  .band-logo { height: 30px; width: auto; max-width: 170px; object-fit: contain; object-position: left center; margin-bottom: 16px; display: block; }
   .band-title { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 700; color: var(--navy); line-height: 1.35; margin-bottom: 8px; }
   .band-org { font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 16px; display: block; font-weight: 500; }
   .band-sub { font-size: 16px; color: var(--navy-mid); line-height: 1.75; font-weight: 300; }
@@ -223,7 +223,7 @@
   .pillar-grid { max-width: 1160px; margin: 28px auto 0; padding: 0 64px; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
   .pillar-card { background: var(--bg-alt); padding: 40px 36px; border-radius: 6px; border: 1px solid var(--line); transition: box-shadow 0.3s, transform 0.3s; display: flex; flex-direction: column; }
   .pillar-card:hover { box-shadow: 0 8px 32px rgba(11,29,58,0.08); transform: translateY(-3px); }
-  .pillar-num { font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 700; color: var(--teal); letter-spacing: 0.12em; margin-bottom: 20px; display: block; }
+  .pillar-num { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 700; color: var(--teal); letter-spacing: 0.12em; margin-bottom: 20px; display: block; }
   .pillar-card h3 { font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 700; color: var(--navy); line-height: 1.25; margin-bottom: 16px; }
   .pillar-card p { font-size: 16px; color: var(--navy-mid); line-height: 1.8; font-weight: 300; flex: 1; }
 
@@ -232,7 +232,6 @@
   .lens-item { display: grid; grid-template-columns: 220px 1fr; gap: 40px; align-items: start; padding: 32px 0; border-bottom: 1px solid var(--line); }
   .lens-item:last-child { border-bottom: none; }
   .lens-label { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; color: var(--navy); line-height: 1.2; padding-top: 3px; }
-  .lens-label span { color: var(--teal); font-size: 16px; letter-spacing: 0.12em; display: block; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; margin-bottom: 4px; }
   .lens-body { font-size: 17px; color: var(--navy-mid); line-height: 1.85; font-weight: 300; }
 
   /* Inline links in body copy: underlined rather than coloured only, so they
@@ -251,7 +250,6 @@
   .research-links li + li::before { content: '·'; color: var(--ink-soft); }
   .research-links a { font-size: 16px; color: var(--navy-mid); text-decoration: none; font-weight: 500; border-bottom: 1px solid transparent; transition: color 0.2s, border-color 0.2s; }
   .research-links a:hover { color: var(--teal); border-bottom-color: var(--teal); }
-  .research-note { font-size: 13px; color: var(--ink-soft); font-weight: 400; margin-left: auto; }
 
   /* PERSPECTIVE TEASER */
   .persp-band { max-width: 1160px; margin: 80px auto 0; padding: 0 64px; }
@@ -305,7 +303,6 @@
     .section-label-row, .section-title, .section-lede, .pillar-grid, .lens-list, .roles-row, .persp-band, .research-row { padding-left: 24px; padding-right: 24px; }
     /* The "published as" note drops under the links rather than being pushed to
        a right edge that no longer exists once the row wraps. */
-    .research-note { margin-left: 0; flex-basis: 100%; }
     .section-label-row { padding-top: 48px; padding-bottom: 24px; }
     .pillar-grid, .roles-row { grid-template-columns: 1fr; }
     .lens-item { grid-template-columns: 1fr; gap: 8px; }
@@ -393,13 +390,15 @@
 
   <div class="roles-row reveal" style="margin-top: 28px;">
     <div class="band-card">
-      <span class="band-label">Current Role</span>
+      <!-- Logo slot: drop the file at logos/neom.png and uncomment. CSS (.band-logo) is ready.
+      <img class="band-logo" src="logos/neom.png" alt="NEOM Investment Fund"> -->
       <h3 class="band-title">Head of Technology Investments</h3>
       <span class="band-org">NEOM Investment Fund · Riyadh</span>
       <p class="band-sub">Leads investments and joint ventures across technology and life science platforms, building the industries of the future in Saudi Arabia.</p>
     </div>
     <div class="band-card">
-      <span class="band-label">Current Role</span>
+      <!-- Logo slot: drop the file at logos/ai-astrolabe.png and uncomment. CSS (.band-logo) is ready.
+      <img class="band-logo" src="logos/ai-astrolabe.png" alt="AI Astrolabe"> -->
       <h3 class="band-title">Co-Founder</h3>
       <span class="band-org">AI Astrolabe · USA</span>
       <p class="band-sub">Post-training data, reinforcement learning environments and evaluations for frontier and enterprise AI. Strongest where quality depends on expert judgment, safety, and multilingual and multimodal capability.</p>
@@ -421,7 +420,7 @@
     <div class="pillar-card">
       <span class="pillar-num">2</span>
       <h3>Build</h3>
-      <p>Co-founder of AI Astrolabe, building post-training data, RL environments and evaluations for frontier and enterprise AI. I've run the company AI-first across legal, finance, and operations. Built from zero.</p>
+      <p>Co-founder of AI Astrolabe, building post-training data, RL environments and evaluations for frontier and enterprise AI. I've run the company AI-first across legal, finance, and operations.</p>
     </div>
     <div class="pillar-card">
       <span class="pillar-num">3</span>
@@ -432,29 +431,29 @@
 </div>
 
 <!-- FIVE LENSES -->
-<div id="five-lenses">
-  <div class="section-label-row reveal"><h2 class="section-label">Five Lenses</h2></div>
+<div id="lenses">
+  <div class="section-label-row reveal"><h2 class="section-label">Lenses</h2></div>
 
   <div class="lens-list reveal">
     <div class="lens-item">
-      <h3 class="lens-label"><span>1</span>Technologist</h3>
+      <h3 class="lens-label">Technologist</h3>
       <p class="lens-body">Built my first computer at age 9 (a 286, 4MB RAM), then spent a decade as a technician in our family's IT business. I competed in esports before it was a career path, and have always been tinkering with technology reshaping how people live and work.</p>
     </div>
     <div class="lens-item">
-      <h3 class="lens-label"><span>2</span>Scientist</h3>
-      <p class="lens-body">PhD in bioscience, and completed my Masters in microbiology while working full-time at Genzyme Genetics as a scientist. Hold multiple US patents. At ContraFect I led preclinical development of CF-301 (exebacase), the first bacteriophage lysin the FDA allowed into human clinical trials, at an NYC biotech that went on to IPO. I later co-founded QualSens to commercialize the sensor technology from my doctoral work.</p>
+      <h3 class="lens-label">Scientist</h3>
+      <p class="lens-body">PhD in bioscience, and completed my Masters in microbiology while working full-time at Genzyme Genetics as a scientist. Hold multiple US patents. At ContraFect, I led preclinical development for the first bacteriophage lysin the FDA allowed into human clinical trials (CF-301, exebacase). The company later went on to IPO. I also co-founded QualSens to commercialize the sensor technology coming out of my doctoral work.</p>
     </div>
     <div class="lens-item">
-      <h3 class="lens-label"><span>3</span>Operator</h3>
+      <h3 class="lens-label">Operator</h3>
       <p class="lens-body">Founded AI Astrolabe to deliver post-training data, RL environments and evaluations for frontier AI. I run all business operations (legal, finance, contracting, fundraising) with an AI-first approach. I know what it takes to build from zero to profitability.</p>
     </div>
     <div class="lens-item">
-      <h3 class="lens-label"><span>4</span>Capital Deployer</h3>
+      <h3 class="lens-label">Capital Deployer</h3>
       <p class="lens-body">Led the technology and life science portfolio at NEOM Investment Fund and structured joint ventures to build "Industries of the Future" in Saudi Arabia. Presented to sovereign investment committees at the highest level and moved capital through complex institutional frameworks.</p>
     </div>
     <div class="lens-item">
-      <h3 class="lens-label"><span>5</span>Connector</h3>
-      <p class="lens-body">American citizen, Saudi Premium Resident, UAE Golden Visa holder. Networks spanning US/China venture, GCC sovereign wealth, and global policy circles.</p>
+      <h3 class="lens-label">Connector</h3>
+      <p class="lens-body">Pakistani-American, Saudi Premium Resident, and UAE Golden Visa holder. Networks spanning US/China venture, GCC sovereign wealth, and global policy circles.</p>
     </div>
   </div>
 </div>
@@ -468,14 +467,13 @@
   </div>
 
   <div class="research-row reveal">
-    <span class="research-label">Research</span>
+    <span class="research-label">Research published as Babar Khalid Khan</span>
     <ul class="research-links">
-      <li><a href="https://orcid.org/0000-0001-9887-3843" target="_blank" rel="noopener">ORCID</a></li>
       <li><a href="https://scholar.google.com/citations?user=11sTchEAAAAJ" target="_blank" rel="noopener">Google Scholar</a></li>
-      <li><a href="https://www.researchgate.net/profile/Babar-Khan-24" target="_blank" rel="noopener">ResearchGate</a></li>
       <li><a href="https://cemse.kaust.edu.sa/profiles/babar-khan" target="_blank" rel="noopener">KAUST</a></li>
+      <li><a href="https://www.researchgate.net/profile/Babar-Khan-24" target="_blank" rel="noopener">ResearchGate</a></li>
+      <li><a href="https://orcid.org/0000-0001-9887-3843" target="_blank" rel="noopener">ORCID</a></li>
     </ul>
-    <span class="research-note">Published as Babar Khalid Khan</span>
   </div>
 </div>
 
@@ -487,7 +485,7 @@
       <h2 class="persp-hed">Deep Tech × <em>Applied AI</em></h2>
       <p class="persp-sub">Where I focus, the track record behind it, and how I work with founders and co-investors.</p>
     </div>
-    <a class="persp-btn" href="insights.html">Click here to read the perspective →</a>
+    <a class="persp-btn" href="insights.html">Read the Perspective here →</a>
   </div>
 </div>
 

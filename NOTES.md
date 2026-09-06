@@ -1,6 +1,67 @@
 # babarkkhan.com - Working Notes
 
-Last updated: 5 September 2026 (entity / Knowledge Panel pass, reviewed and merged)
+Last updated: 6 September 2026 (copy pass; entity work untouched)
+
+## Done 6 Sep 2026 (copy pass from Babar; entity work untouched)
+
+Copy and layout only. **No JSON-LD, sitemap, robots.txt, Search Console file
+or headshot was touched** - all three `application/ld+json` blocks were
+diffed byte-for-byte before and after and are identical, because the
+Knowledge Panel work is live and being crawled.
+
+### Homepage
+
+- **Current Roles:** the repeated "Current Role" label is gone from both
+  cards; the section heading already says it. Replaced by a logo slot.
+- **Logo slots are staged, not live.** `.band-logo` CSS is in place and the
+  `<img>` tags sit commented out in both cards, expecting
+  `logos/neom.png` and `logos/ai-astrolabe.png`. Deliberately not shipped
+  as live tags pointing at missing files: that would fire two 404s on every
+  page load, which is exactly the noise not to hand a crawler mid-indexing.
+  Uncomment once the files land.
+- **Pillar numbers 16px -> 26px**, so 1/2/3 now sit above the 24px
+  Invest/Build/Bridge headings rather than below them.
+- **"Five Lenses" -> "Lenses"**, numbers dropped from all five. Section id
+  changed `#five-lenses` -> `#lenses`; nothing linked to it. The
+  `.lens-label span` rule is removed.
+- Scientist lens: ContraFect sentence rewritten to Babar's version.
+- Connector lens: "American citizen" -> "Pakistani-American".
+- Recognition: the research row label is now "Research published as Babar
+  Khalid Khan" (the separate trailing note is gone, `.research-note` CSS
+  removed), and links reorder to Google Scholar, KAUST, ResearchGate, ORCID.
+- Perspective button: "Read the Perspective here".
+- "Built from zero." removed from pillar 2.
+
+### About page
+
+New section order, per Babar: Current roles, NEOM Investment Fund (was
+"Investing"), AI Astrolabe, Board experience, Education, Recognition,
+Research & Science (was "Research and science background"), QualSens, Reach.
+
+- AI Astrolabe: rewritten, now describes it as a trusted AI Data Lab.
+  "Built from zero." removed here too.
+- Research & Science: rewritten; ORCID is now a hyperlink on the word rather
+  than on the bare identifier, matching how Google Scholar is linked. KAUST
+  is linked on first mention.
+- QualSens: rewritten. The "throughline of his career ... QualSens no longer
+  operates" sentence is deleted per Babar.
+- Board experience: "The full list sits on the Perspective page" removed.
+- Reach: "an American citizen" -> "Pakistani-American".
+
+### Three small edits to Babar's supplied copy
+
+Flagged to him rather than transcribed literally:
+
+1. "in 2024 to develops post-training data" -> "to develop".
+2. "(CF-301 (exebacase)" had unbalanced parentheses -> "(CF-301, exebacase)".
+3. "raising non-dilutive fundraising" -> "raising non-dilutive funding".
+
+### Consistency note
+
+"Pakistani-American" is visible copy only. The Person node still carries
+`nationality: United States`, which stays correct and is not contradicted:
+Pakistani-American describes heritage, US nationality is the citizenship
+claim. No schema change was needed or made.
 
 ## Done 5 Sep 2026 (entity + Knowledge Panel pass)
 
