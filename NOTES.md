@@ -13,12 +13,16 @@ Knowledge Panel work is live and being crawled.
 
 - **Current Roles:** the repeated "Current Role" label is gone from both
   cards; the section heading already says it. Replaced by a logo slot.
-- **Logo slots are staged, not live.** `.band-logo` CSS is in place and the
-  `<img>` tags sit commented out in both cards, expecting
-  `logos/neom.png` and `logos/ai-astrolabe.png`. Deliberately not shipped
-  as live tags pointing at missing files: that would fire two 404s on every
-  page load, which is exactly the noise not to hand a crawler mid-indexing.
-  Uncomment once the files land.
+- **Logos were considered and dropped (6 Sep).** The supplied NEOM asset is
+  dark teal on white: 1.43:1 against the `#161B22` card, invisible with a
+  transparent background and a white block without one. It is also a
+  three-line stacked lockup, so at any height that fits the card its text
+  lines land around 6-10px, under the site's 12px floor. The AI Astrolabe
+  asset is a wordmark baked onto an opaque dark square with no transparency.
+  Usable versions would be a reversed/icon-only NEOM mark and an AI Astrolabe
+  wordmark on transparent, both ideally SVG. Babar chose to drop the idea
+  rather than chase those. The slots and `.band-logo` CSS are removed; both
+  cards name their organization in `.band-org` text, which carries it.
 - **Pillar numbers 16px -> 26px**, so 1/2/3 now sit above the 24px
   Invest/Build/Bridge headings rather than below them.
 - **"Five Lenses" -> "Lenses"**, numbers dropped from all five. Section id
