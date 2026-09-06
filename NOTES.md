@@ -223,6 +223,21 @@ both inspected and submitted for indexing.
 Confirmed done: babarkkhan.com resolves, www redirects to the apex, Enforce
 HTTPS is ticked.
 
+Rich Results Test, 6 Sep, both pages crawled successfully:
+
+- `/about/` -> 3 valid items: Breadcrumbs, Organization, Profile page.
+- `/` -> 1 valid item: Organization.
+
+**Person does not appear in either result, and that is correct.** The Rich
+Results Test only lists types eligible for a search-result decoration, and
+`Person` is not one of them. Its absence is not a failure and nothing needs
+fixing. Do not "correct" the schema because Person is missing from that report.
+
+The Person node is provably being read anyway: `/about/` validated as a
+**Profile page**, and ProfilePage only validates with a resolvable
+`mainEntity`, which is `https://babarkkhan.com/#person`. To see every node
+including Person, use `validator.schema.org` rather than the Rich Results Test.
+
 **The whole project is now complete.** Nothing on the site is pending and no
 code change is waiting on anyone.
 
